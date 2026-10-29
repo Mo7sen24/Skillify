@@ -160,6 +160,60 @@ footer .in{grid-template-columns:1fr}
 }
 @media(max-width:480px){.group{padding:14px}.acts{flex-direction:column;align-items:center}.acts>*{width:100%;max-width:230px;box-sizing:border-box;text-align:center}.pr{justify-content:center;gap:8px;padding:6px 12px 6px 8px}.pr b{font-size:18px}.pr s{font-size:11px}.pr em{font-size:9px;padding:5px 8px}}
 @media(prefers-reduced-motion:reduce){.petals,.devices .laptop,.devices .phone,.hero h1 span,.cd b.tick{animation:none!important}.hero .eyebrow,.hero h1,.hero .tags,.hero p,.hero .btn,.devices{animation:none}html{scroll-behavior:auto}.hero:before,.hero:after{animation:none}.card{opacity:1;transform:none}}
+
+/* ===== Order modal ===== */
+.buy{cursor:pointer}
+.ov{position:fixed;inset:0;z-index:100;background:#1f1316b8;backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:calc(14px + env(safe-area-inset-top,0px)) 14px calc(14px + env(safe-area-inset-bottom,0px))}
+.ov.on{display:flex}
+.md{position:relative;direction:rtl;text-align:right;background:var(--card);color:var(--ink);width:100%;max-width:440px;max-height:100%;overflow:auto;border-radius:26px;padding:26px 22px 22px;border:1px solid var(--line);box-shadow:0 24px 60px #0006;animation:pop .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.md .x{position:absolute;top:12px;left:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--tint);color:var(--ink);font-size:18px;cursor:pointer}
+.md h3{font:500 22px/1.3 'Playfair Display',serif;margin:4px 0 4px;padding-left:40px}
+.md .sub{font-size:13px;color:var(--mute);margin-bottom:16px}
+.sum{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--gold-t);color:var(--gold);border-radius:16px;padding:11px 14px;font-size:13px;margin-bottom:16px}
+.sum b{font:700 16px Montserrat,Poppins,sans-serif;white-space:nowrap}
+.md label.f{display:block;font-size:13px;margin:0 0 6px;font-weight:400}
+.md input[type=text],.md input[type=tel]{width:100%;font:400 16px Poppins,system-ui,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:14px;direction:rtl}
+.md input:focus{outline:2px solid var(--rose);outline-offset:1px}
+.md input[name=ph]{direction:ltr;text-align:right}
+.yn{display:flex;gap:10px;margin-bottom:6px}
+.yn label{flex:1;text-align:center;border:1px solid var(--line);border-radius:14px;padding:11px 8px;font-size:14px;cursor:pointer;background:var(--bg);transition:all .2s}
+.yn input{position:absolute;opacity:0;pointer-events:none}
+.yn label:has(input:checked){background:var(--rose);color:#fff;border-color:var(--rose)}
+.yn label:has(input:focus-visible){outline:2px solid var(--rose);outline-offset:2px}
+.er{color:#d0394f;font-size:12.5px;min-height:18px;margin:6px 0 8px}
+.md .btn{width:100%;justify-content:center;font-family:inherit}
+.md .btn[disabled]{opacity:.6;pointer-events:none}
+.lnk{display:block;margin:12px auto 0;background:none;border:0;color:var(--mute);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline}
+.paybox{background:var(--tint);border:1px dashed var(--rose);border-radius:18px;padding:16px;text-align:center;margin-bottom:14px}
+.paybox small{display:block;color:var(--mute);font-size:12px}
+.paybox .num{font:700 26px Montserrat,Poppins,sans-serif;letter-spacing:.04em;direction:ltr;margin:6px 0 10px;color:var(--rose-d)}
+.cp{border:0;border-radius:99px;padding:8px 18px;font:inherit;font-size:13px;background:var(--rose);color:#fff;cursor:pointer}
+.ways{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.ways span{font-size:11px;background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.steps{font-size:13px;color:var(--mute);padding-right:18px;margin-bottom:16px}
+.steps li{margin-bottom:4px}
+.ok{text-align:center;padding:6px 0}
+.ok .tick{width:64px;height:64px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;background:linear-gradient(135deg,#6fbf8b,#3f9a63)}
+.tl{list-style:none;margin:0 0 16px;padding:0;position:relative}
+.tl li{position:relative;padding:0 46px 14px 0;min-height:44px}
+.tl li:before{content:attr(data-i);position:absolute;right:0;top:0;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:600 14px Montserrat,Poppins,sans-serif;color:#fff;background:linear-gradient(135deg,#c95f79,var(--rose-d))}
+.tl li:after{content:"";position:absolute;right:15px;top:34px;bottom:2px;width:2px;background:var(--line)}
+.tl li:last-child:after{display:none}
+.tl b{display:block;font-weight:500;font-size:14px;line-height:1.4;margin-bottom:1px}
+.tl span{display:block;font-size:12.5px;color:var(--mute);line-height:1.55}
+.tl em{font-style:normal;color:var(--gold);font-weight:400}
+.note{font-size:12.5px;background:var(--gold-t);color:var(--gold);border-radius:14px;padding:10px 14px;margin-bottom:16px;line-height:1.6}
+.wafab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:90;direction:ltr;display:flex;align-items:center;height:60px;border-radius:30px;background:linear-gradient(135deg,#43e97b,#0fa958);box-shadow:0 10px 26px #0fa95866,0 2px 8px #0003,inset 0 2px 0 #ffffff59;text-decoration:none;color:#fff;transition:transform .25s,box-shadow .25s}
+.wafab:hover,.wafab:focus-visible{transform:translateY(-3px);box-shadow:0 14px 30px #0fa95877,0 3px 10px #0003,inset 0 2px 0 #ffffff59}
+.wafab:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.wafab .lbl{max-width:0;overflow:hidden;white-space:nowrap;direction:rtl;font:500 14px/1 Poppins,"Segoe UI",Tahoma,sans-serif;opacity:0;transition:max-width .45s cubic-bezier(.2,.8,.2,1),opacity .3s,padding .45s}
+.wafab.open .lbl,.wafab:hover .lbl,.wafab:focus-visible .lbl{max-width:170px;opacity:1;padding:0 4px 0 20px}
+.wafab .ic{position:relative;flex:none;width:60px;height:60px;display:grid;place-items:center}
+.wafab .ic:before{content:"";position:absolute;inset:4px;border-radius:50%;background:#fff;opacity:.45;animation:wap 2.4s ease-out infinite}
+.wafab svg{position:relative;width:32px;height:32px;fill:#fff;filter:drop-shadow(0 1px 2px #0003)}
+@keyframes wap{to{transform:scale(1.55);opacity:0}}
+@media(prefers-reduced-motion:reduce){.wafab .ic:before{animation:none;opacity:0}.wafab,.wafab .lbl{transition:none}}
 </style>
 </head>
 <body>
@@ -196,7 +250,7 @@ footer .in{grid-template-columns:1fr}
 <footer id="contact"><div class="in">
 <div class="logo"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M24 24c-6-10-18-12-18-4s10 8 18 4zm0 0c6-10 18-12 18-4s-10 8-18 4zM24 24c-4 6-8 14-6 18m6-18c4 6 8 14 6 18"/></svg><b>Skillify</b><small>Your Special Day, Digitally</small></div>
 <div class="script" style="font-size:28px;line-height:1.3">Let's make your special day unforgettable</div>
-<div id="pricing"><a class="btn" href="https://wa.me/201500816542" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+<div id="pricing">
 <div class="soc"><a href="https://www.facebook.com/share/1C7ZH75FSk/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">f</a><a href="https://www.instagram.com/skillllify?mdxt=MWl1cDF0ZGlvdDJpMA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.tiktok.com/@skilllify?_r=1&amp;_t=ZS-9AwXbrSNRIH" target="_blank" rel="noopener" aria-label="TikTok">♪</a></div></div>
 <div class="copy">© 2025 Skillify | Crafted with love for your special moments ♡</div>
 </div></footer>
@@ -214,7 +268,7 @@ var groups=[
 ];
 /* Optional real screenshots: put images in an img/ folder next to this file (names below). If a file is missing, the styled preview shows instead. */
 var SH={"https://omar-malak2.vercel.app":["img/omar.jpg",40],"https://adam-mona.vercel.app/":["img/adam.jpg",47],"https://mohamed-farida.vercel.app":["img/mohanad.jpg",18]};
-var N=0;
+var ORD={};var N=0;
 function mk(i){var t=T[i[2]],h=SH[i[6]];
 function sc(y){return '<div class="scr shot" style="background-image:url('+h[0]+'),'+t[0]+';color:'+t[1]+';--ac:'+t[2]+';--y:'+y+'%"><div class="c">'+i[4]+'</div><div class="n">'+i[3]+'</div><div class="d">'+i[5]+'</div><div class="cd"><b>12</b><b>08</b><b>45</b><b>32</b></div></div>'}
 function pl(){return '<div class="scr" style="background:'+t[0]+';color:'+t[1]+';--ac:'+t[2]+'"><div class="c">'+i[4]+'</div><div class="n">'+i[3]+'</div><div class="d">'+i[5]+'</div><div class="cd"><b>12</b><b>08</b><b>45</b><b>32</b></div></div>'}
@@ -222,7 +276,7 @@ var a=h?sc(h[1]):pl(),b=h?sc(0):pl();
 return '<div class="mock" aria-hidden="true"><div class="laptop">'+a+'</div><div class="phone">'+b+'</div></div>'}
 document.getElementById("groups").innerHTML=groups.map(function(g){
 return '<div class="group gold"><div class="gh"><div><h3>'+g.t+'</h3><p>'+g.d+'</p></div></div><div class="grid">'+
-g.items.map(function(i){var n=++N,msg=encodeURIComponent("مرحباً Skillify 👋\nأعجبني تصميم رقم "+n+" ("+i[0]+" - "+i[1]+") بسعر "+g.price+" بدل "+g.old+" (خصم 50% لفترة محدودة).\nأريد معرفة التفاصيل.");return '<div class="card"><span class="no">No. '+n+'</span>'+mk(i)+'<h4>'+i[0]+'</h4><div class="ty">'+i[1]+'</div><div class="chips">'+i[7].map(function(f){return '<span>'+f+'</span>'}).join("")+'</div><div class="acts"><div class="pr"><em>50% OFF</em><span><s>'+g.old+'</s><b>'+g.price+'</b></span></div><a class="ghost" href="'+i[6]+'" target="_blank" rel="noopener">View the Invitation →</a><a class="buy" href="https://wa.me/201500816542?text='+msg+'" target="_blank" rel="noopener">Order This Design</a></div></div>'}).join("")+'</div></div>'}).join("");
+g.items.map(function(i){var n=++N,od=(ORD[n]={n:n,name:i[0],type:i[1],price:g.price,old:g.old}),msg=encodeURIComponent("مرحباً Skillify 👋\nأعجبني تصميم رقم "+n+" ("+i[0]+" - "+i[1]+") بسعر "+g.price+" بدل "+g.old+" (خصم 50% لفترة محدودة).\nأريد معرفة التفاصيل.");return '<div class="card"><span class="no">No. '+n+'</span>'+mk(i)+'<h4>'+i[0]+'</h4><div class="ty">'+i[1]+'</div><div class="chips">'+i[7].map(function(f){return '<span>'+f+'</span>'}).join("")+'</div><div class="acts"><div class="pr"><em>50% OFF</em><span><s>'+g.old+'</s><b>'+g.price+'</b></span></div><a class="ghost" href="'+i[6]+'" target="_blank" rel="noopener">View the Invitation →</a><a class="buy" role="button" tabindex="0" data-n="'+n+'">Order This Design</a></div></div>'}).join("")+'</div></div>'}).join("");
 var m=document.getElementById("menu"),nv=document.getElementById("nav");
 m.onclick=function(){var o=nv.classList.toggle("open");m.setAttribute("aria-expanded",o)};
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener("click",function(e){var id=a.getAttribute("href").slice(1);e.preventDefault();var t=id&&document.getElementById(id);nv.classList.remove("open");m.setAttribute("aria-expanded","false");if(t){t.scrollIntoView({behavior:"smooth",block:"start"})}else{window.scrollTo({top:0,behavior:"smooth"})}})});
@@ -232,6 +286,171 @@ if(!calm){for(var k=0;k<16;k++){var i=document.createElement("i");i.style.left=(
 if("IntersectionObserver" in window){new IntersectionObserver(function(es){pe.style.display=es[0].isIntersecting?"":"none"}).observe(hero)}})();
 var cards=document.querySelectorAll(".card");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e,k){if(e.isIntersecting){setTimeout(function(){e.target.classList.add("in")},k*90);io.unobserve(e.target)}})},{threshold:.12});cards.forEach(function(c){io.observe(c)})}else{cards.forEach(function(c){c.classList.add("in")})}
+</script>
+
+<script>
+/* حط هنا رابط Google Apps Script (Web app) */
+var SHEET_URL="https://script.google.com/macros/s/AKfycbz8Qp-Gebb9NTWTULS7A6HtFeQKDgyRxr6kcEnwVTQSIoBvoAE1yMqsVw55ZbMnUktk/exec";
+/* تتبع الزيارات والضغطات */
+(function(){
+if(navigator.webdriver)return;
+function rid(){return Math.random().toString(36).slice(2,10)}
+function st(S,k,p){try{var v=S.getItem(k);if(!v){v=p+rid();S.setItem(k,v)}return[v,0]}catch(e){return[p+rid(),0]}}
+var isNew=true;try{isNew=!localStorage.getItem("sk_v")}catch(e){}
+var vid=st(window.localStorage||{getItem:function(){},setItem:function(){}},"sk_v","V")[0],sid=st(window.sessionStorage||{getItem:function(){},setItem:function(){}},"sk_s","S")[0];
+var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"موبايل":"كمبيوتر";
+var q=new URLSearchParams(location.search),src=q.get("utm_source")||"";
+if(!src){try{src=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,""):"مباشر"}catch(e){src="مباشر"}}
+var Q=[];
+function ev(n,l,d){Q.push([new Date().toISOString(),vid,sid,n,l||"",d||"",dev,src]);if(Q.length>=15)flush()}
+function flush(){
+ if(!Q.length||!/^https:\/\//.test(SHEET_URL))return;
+ var b=Q.splice(0,Q.length);
+ try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"events",rows:b})}).catch(function(){})}catch(e){}
+}
+setInterval(flush,5000);
+addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")flush()});
+addEventListener("pagehide",flush);
+ev("visit",isNew?"جديد":"عائد");
+document.addEventListener("click",function(e){
+ var t=e.target.closest&&e.target.closest("a,button");if(!t)return;
+ var l=(t.getAttribute("data-track")||t.getAttribute("aria-label")||t.textContent||"").replace(/\s+/g," ").trim().slice(0,60)||t.getAttribute("href")||"?";
+ var c=t.closest(".card"),h=c&&c.querySelector("h4");
+ ev("click",l,h?h.textContent:"");
+},true);
+})();
+</script>
+<a class="wafab" href="https://wa.me/201500816542?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AF%D8%B9%D9%88%D8%A7%D8%AA%20Skillify" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب" data-track="WhatsApp Floating"><span class="lbl">كلمنا على واتساب</span><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C8.84 3 3 8.82 3 16c0 2.3.6 4.5 1.74 6.46L3 29l6.7-1.7A13 13 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.8c-1.98 0-3.9-.53-5.58-1.54l-.4-.24-3.98 1.01 1.06-3.86-.26-.4A10.7 10.7 0 0 1 5.3 16c0-5.9 4.84-10.7 10.74-10.7S26.7 10.1 26.7 16s-4.8 10.8-10.66 10.8zm5.9-8c-.32-.16-1.9-.94-2.2-1.04-.3-.1-.5-.16-.72.16-.22.32-.84 1.04-1.02 1.26-.2.2-.38.24-.7.08-.32-.16-1.36-.5-2.58-1.6-.96-.84-1.6-1.9-1.8-2.2-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.56.16-.2.22-.32.32-.54.1-.2.06-.4-.02-.56-.08-.16-.72-1.74-1-2.38-.26-.62-.52-.54-.72-.55h-.62c-.2 0-.56.08-.86.4-.3.32-1.14 1.12-1.14 2.72s1.17 3.16 1.33 3.38c.16.2 2.3 3.5 5.56 4.92.78.34 1.38.54 1.86.7.78.24 1.5.2 2.06.12.62-.1 1.9-.78 2.16-1.52.28-.76.28-1.4.2-1.54-.08-.14-.3-.22-.62-.38z"/></svg></span></a>
+<script>(function(){var f=document.querySelector(".wafab");if(!f)return;setTimeout(function(){f.classList.add("open");setTimeout(function(){f.classList.remove("open")},6000)},2500)})();</script>
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt" hidden>
+<div class="md">
+<button class="x" id="mx" type="button" aria-label="إغلاق">✕</button>
+
+<div id="st0">
+<h3>إزاي بيتم طلبك؟</h3>
+<p class="sub">اقرا الخطوات دي قبل ما تكمّل 👇</p>
+<ol class="tl">
+<li data-i="1"><b>تكتب بياناتك</b><span>الاسم ورقم الموبايل، وتاخد دقيقة بس.</span></li>
+<li data-i="2"><b>تحوّل المبلغ</b><span>على InstaPay أو محفظة إلكترونية، وتدوس "تم التحويل".</span></li>
+<li data-i="3"><b>نأكد الدفع</b><span>بعد ما تبعتلنا طلبك وتدوس "تم التحويل"، هنراجع التحويل ونتواصل معاك <em>خلال ساعات قليلة</em> على واتساب أو مكالمة ونأكد استلام المبلغ.</span></li>
+<li data-i="4"><b>تبعتلنا بيانات الفرح</b><span>بعد التأكيد بتبعتلنا: أسماء العروسين، تاريخ ووقت الفرح، اسم القاعة ولينك موقعها على الخريطة، الصور، والأغنية اللي تحبها.</span></li>
+<li data-i="5"><b>بنبدأ التنفيذ</b><span>أول ما كل البيانات توصلنا بنبدأ شغل، ونبعتلك نسخة تراجعها.</span></li>
+<li data-i="6"><b>التسليم</b><span>رابط دعوتك يكون جاهز <em>خلال ساعتين فقط</em> من استلام كل البيانات، مع تعديل مجاني بعد المراجعة.</span></li>
+</ol>
+<div class="note">💡 كل ما بعتلنا بيانات الفرح بدري، استلمت دعوتك بدري.</div>
+<button class="btn" id="go1" type="button">فهمت، كمّل ←</button>
+</div>
+
+<div id="st1" hidden>
+<h3 id="mt">اطلب تصميمك</h3>
+<p class="sub">اكتب بياناتك وبعدها هتعرف تدفع إزاي</p>
+<div class="sum"><span id="sm1"></span><b id="sp1"></b></div>
+<form id="f1" novalidate>
+<label class="f" for="nm">الاسم بالكامل</label>
+<input type="text" id="nm" name="nm" autocomplete="name" placeholder="مثال: أحمد محمد">
+<label class="f" for="ph">رقم الموبايل</label>
+<input type="tel" id="ph" name="ph" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx" maxlength="14">
+<label class="f">هل الرقم ده عليه واتساب؟</label>
+<div class="yn"><label><input type="radio" name="wa" value="نعم"> أيوه ✅</label><label><input type="radio" name="wa" value="لا"> لأ ❌</label></div>
+<div class="er" id="er1" role="alert"></div>
+<button class="btn" type="submit">التالي ←</button>
+<button class="lnk" id="back0" type="button">← رجوع للتعليمات</button>
+</form>
+</div>
+
+<div id="st2" hidden>
+<h3>حوّل المبلغ</h3>
+<p class="sub">حوّل على الرقم ده، وبعدها دوس "تم التحويل"</p>
+<div class="sum"><span id="sm2"></span><b id="sp2"></b></div>
+<div class="paybox">
+<small>InstaPay أو محفظة إلكترونية</small>
+<div class="num" id="pn">01066934068</div>
+<button class="cp" id="cp" type="button">📋 نسخ الرقم</button>
+<div class="ways"><span>InstaPay</span><span>فودافون كاش</span><span>اتصالات كاش</span><span>أورنج كاش</span><span>وي باي</span></div>
+</div>
+<ol class="steps"><li>حوّل المبلغ المكتوب فوق على الرقم ده.</li><li>خد سكرين شوت لإيصال التحويل.</li><li>دوس "تم التحويل" واحنا هنتواصل معاك.</li></ol>
+<button class="btn" id="done" type="button">✔ تم التحويل</button>
+<button class="lnk" id="back" type="button">← تعديل بياناتي</button>
+</div>
+
+<div id="st3" hidden>
+<div class="ok">
+<div class="tick">✓</div>
+<h3 style="padding:0">وصلنا طلبك!</h3>
+<p class="sub" id="okmsg"></p>
+<a class="btn" id="wab" href="#" target="_blank" rel="noopener" hidden>💬 ابعت صورة التحويل على واتساب</a>
+<button class="lnk" id="cl" type="button">إغلاق</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+var PAY="01066934068",WA="201500816542";
+function $(i){return document.getElementById(i)}
+var ov=$("ov"),cur=null,data=null,lastFocus=null;
+function show(n){["st0","st1","st2","st3"].forEach(function(s){$(s).hidden=(s!=="st"+n)});ov.querySelector(".md").scrollTop=0}
+function norm(v){return v.replace(/[\u0660-\u0669]/g,function(d){return d.charCodeAt(0)-1632}).replace(/\D/g,"")}
+function send(status){
+ if(!data||!/^https:\/\//.test(SHEET_URL))return;
+ var o={id:data.id,status:status,no:cur.n,design:cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
+ try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o)}).catch(function(){})}catch(e){}
+}
+function open(n){
+ cur=ORD[n];if(!cur)return;
+ data={id:"SK-"+Date.now().toString(36).toUpperCase()};
+ lastFocus=document.activeElement;
+ var t="تصميم رقم "+cur.n+" — "+cur.name+" ("+cur.type+")";
+ $("sm1").textContent=t;$("sm2").textContent=t;$("sp1").textContent=cur.price;$("sp2").textContent=cur.price;
+ $("f1").reset();$("er1").textContent="";$("done").disabled=false;
+ show(0);ov.hidden=false;ov.classList.add("on");document.body.style.overflow="hidden";
+ 
+}
+function close(){ov.classList.remove("on");ov.hidden=true;document.body.style.overflow="";if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".buy[data-n]");if(b){e.preventDefault();open(b.getAttribute("data-n"))}});
+document.addEventListener("keydown",function(e){
+ if(e.key==="Escape"&&ov.classList.contains("on"))close();
+ if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches(".buy[data-n]")){e.preventDefault();open(e.target.getAttribute("data-n"))}
+});
+ov.addEventListener("click",function(e){if(e.target===ov)close()});
+$("mx").onclick=close;$("cl").onclick=close;
+$("f1").addEventListener("submit",function(e){
+ e.preventDefault();
+ var nm=$("nm").value.trim().replace(/\s+/g," "),ph=norm($("ph").value),w=document.querySelector('input[name="wa"]:checked'),er=$("er1");
+ if(nm.length<3){er.textContent="من فضلك اكتب اسمك بالكامل";return}
+ if(ph.indexOf("20")===0&&ph.length===12)ph="0"+ph.slice(2);
+ if(!/^01[0125]\d{8}$/.test(ph)){er.textContent="اكتب رقم موبايل مصري صحيح (11 رقم)";return}
+ if(!w){er.textContent="اختار هل الرقم عليه واتساب ولا لأ";return}
+ er.textContent="";
+ data.name=nm;data.phone=ph;data.wa=w.value;
+ send("بدأ الطلب");
+ show(2);
+});
+$("back").onclick=function(){show(1)};
+$("go1").onclick=function(){show(1);setTimeout(function(){$("nm").focus()},60)};
+$("back0").onclick=function(){show(0)};
+$("cp").onclick=function(){
+ var b=$("cp");
+ function ok(){b.textContent="✔ تم النسخ";setTimeout(function(){b.textContent="📋 نسخ الرقم"},1800)}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(PAY).then(ok,fb)}else fb();
+ function fb(){var t=document.createElement("textarea");t.value=PAY;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");ok()}catch(x){}document.body.removeChild(t)}
+};
+$("done").onclick=function(){
+ this.disabled=true;
+ send("حوّل - في انتظار الإيصال");
+ var wab=$("wab");
+ if(data.wa==="نعم"){
+  var msg="مرحباً Skillify 👋\nرقم الطلب: "+data.id+"\nالتصميم: رقم "+cur.n+" ("+cur.name+" - "+cur.type+")\nالسعر: "+cur.price+"\nالاسم: "+data.name+"\nالموبايل: "+data.phone+"\nحوّلت المبلغ على "+PAY+" وده إيصال التحويل 👇";
+  wab.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);wab.hidden=false;
+  $("okmsg").textContent="رقم طلبك "+data.id+". ابعت صورة إيصال التحويل على واتساب عشان نأكد الطلب بسرعة.";
+ }else{
+  wab.hidden=true;
+  $("okmsg").textContent="رقم طلبك "+data.id+". هنتواصل معاك بمكالمة على "+data.phone+" لتأكيد الدفع والطلب.";
+ }
+ show(3);
+};
+})();
 </script>
 </body>
 </html>
