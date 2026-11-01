@@ -260,6 +260,7 @@ var T={dark:["radial-gradient(circle at 50% 30%,#4a3a30,#14100e)","#f7e6dc","#e0
 var groups=[
 {price:"200 EGP",old:"400 EGP",t:"Luxury & Cinematic",d:"More features, more animations, more magic",items:[
 ["Omar & Malak","Engagement","green","Omar & Malak","Scratch to reveal the date","October 16, 2026","https://omar-malak2.vercel.app",["Countdown","Location","RSVP","Scratch Reveal","Music"]],
+["Ahmed & Salma","Wedding","ivory","Ahmed & Salma","We're getting married!","November 27, 2026","https://ahmed-salma-rho.vercel.app/",["Countdown","Location","RSVP","Schedule","Dress Code"]],
 ["Adam & Mona","Wedding","ivory","ADAM & MONA","Wedding invitation","16 January 2027","https://adam-mona.vercel.app/",["Countdown","Location","RSVP","Gallery","Music"]],
 ["Omar & Hannah","Wedding","dark","Omar & Hannah","Tap to open the invitation","Wedding Day","https://omar-hannah.vercel.app",["Countdown","Location","RSVP","Schedule","Photo Gallery","Guestbook"]],
 ["Mostafa & Esraa","Wedding","silk","Mostafa & Esraa","Tap to open the invitation","20 . 11 . 2026","https://mostafa-esraa-silk.vercel.app/",["Countdown","Location","RSVP","Photo Story","Arabic / English"]],
@@ -268,6 +269,8 @@ var groups=[
 ];
 /* Optional real screenshots: put images in an img/ folder next to this file (names below). If a file is missing, the styled preview shows instead. */
 var SH={"https://omar-malak2.vercel.app":["img/omar.jpg",40],"https://adam-mona.vercel.app/":["img/adam.jpg",47],"https://mohamed-farida.vercel.app":["img/mohanad.jpg",18]};
+/* أسماء التتبع الثابتة (إنجليزي) حسب رابط الدعوة - مستقلة عن النص اللي بيظهر للزائر. لو ضفت دعوة جديدة ضيفها هنا */
+var DN={"https://omar-malak2.vercel.app":"Omar & Malak","https://ahmed-salma-rho.vercel.app/":"Ahmed & Salma","https://adam-mona.vercel.app/":"Adam & Mona","https://omar-hannah.vercel.app":"Omar & Hannah","https://mostafa-esraa-silk.vercel.app/":"Mostafa & Esraa","https://mohamed-farida.vercel.app":"Mohanad & Farida","https://abdallah-mariam.vercel.app/":"Abdullah & Mariam"};
 var ORD={};var N=0;
 function mk(i){var t=T[i[2]],h=SH[i[6]];
 function sc(y){return '<div class="scr shot" style="background-image:url('+h[0]+'),'+t[0]+';color:'+t[1]+';--ac:'+t[2]+';--y:'+y+'%"><div class="c">'+i[4]+'</div><div class="n">'+i[3]+'</div><div class="d">'+i[5]+'</div><div class="cd"><b>12</b><b>08</b><b>45</b><b>32</b></div></div>'}
@@ -276,7 +279,7 @@ var a=h?sc(h[1]):pl(),b=h?sc(0):pl();
 return '<div class="mock" aria-hidden="true"><div class="laptop">'+a+'</div><div class="phone">'+b+'</div></div>'}
 document.getElementById("groups").innerHTML=groups.map(function(g){
 return '<div class="group gold"><div class="gh"><div><h3>'+g.t+'</h3><p>'+g.d+'</p></div></div><div class="grid">'+
-g.items.map(function(i){var n=++N,od=(ORD[n]={n:n,name:i[0],type:i[1],price:g.price,old:g.old}),msg=encodeURIComponent("مرحباً Skillify 👋\nأعجبني تصميم رقم "+n+" ("+i[0]+" - "+i[1]+") بسعر "+g.price+" بدل "+g.old+" (خصم 50% لفترة محدودة).\nأريد معرفة التفاصيل.");return '<div class="card"><span class="no">No. '+n+'</span>'+mk(i)+'<h4>'+i[0]+'</h4><div class="ty">'+i[1]+'</div><div class="chips">'+i[7].map(function(f){return '<span>'+f+'</span>'}).join("")+'</div><div class="acts"><div class="pr"><em>50% OFF</em><span><s>'+g.old+'</s><b>'+g.price+'</b></span></div><a class="ghost" href="'+i[6]+'" target="_blank" rel="noopener">View the Invitation →</a><a class="buy" role="button" tabindex="0" data-n="'+n+'">Order This Design</a></div></div>'}).join("")+'</div></div>'}).join("");
+g.items.map(function(i){var n=++N,od=(ORD[n]={n:n,name:i[0],key:DN[i[6]]||i[0],type:i[1],price:g.price,old:g.old}),msg=encodeURIComponent("مرحباً Skillify 👋\nأعجبني تصميم رقم "+n+" ("+i[0]+" - "+i[1]+") بسعر "+g.price+" بدل "+g.old+" (خصم 50% لفترة محدودة).\nأريد معرفة التفاصيل.");return '<div class="card" data-design="'+(DN[i[6]]||i[0]).replace(/"/g,"&quot;")+'"><span class="no">No. '+n+'</span>'+mk(i)+'<h4>'+i[0]+'</h4><div class="ty">'+i[1]+'</div><div class="chips">'+i[7].map(function(f){return '<span>'+f+'</span>'}).join("")+'</div><div class="acts"><div class="pr"><em>50% OFF</em><span><s>'+g.old+'</s><b>'+g.price+'</b></span></div><a class="ghost" data-track="View the Invitation" href="'+i[6]+'" target="_blank" rel="noopener">View the Invitation →</a><a class="buy" role="button" tabindex="0" data-track="Order This Design" data-n="'+n+'">Order This Design</a></div></div>'}).join("")+'</div></div>'}).join("");
 var m=document.getElementById("menu"),nv=document.getElementById("nav");
 m.onclick=function(){var o=nv.classList.toggle("open");m.setAttribute("aria-expanded",o)};
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener("click",function(e){var id=a.getAttribute("href").slice(1);e.preventDefault();var t=id&&document.getElementById(id);nv.classList.remove("open");m.setAttribute("aria-expanded","false");if(t){t.scrollIntoView({behavior:"smooth",block:"start"})}else{window.scrollTo({top:0,behavior:"smooth"})}})});
@@ -316,7 +319,7 @@ document.addEventListener("click",function(e){
  var t=e.target.closest&&e.target.closest("a,button");if(!t)return;
  var l=(t.getAttribute("data-track")||t.getAttribute("aria-label")||t.textContent||"").replace(/\s+/g," ").trim().slice(0,60)||t.getAttribute("href")||"?";
  var c=t.closest(".card"),h=c&&c.querySelector("h4");
- ev("click",l,h?h.textContent:"");
+ ev("click",l,(c&&c.getAttribute("data-design"))||(h?h.textContent:""));
 },true);
 })();
 </script>
@@ -394,7 +397,7 @@ function show(n){["st0","st1","st2","st3"].forEach(function(s){$(s).hidden=(s!==
 function norm(v){return v.replace(/[\u0660-\u0669]/g,function(d){return d.charCodeAt(0)-1632}).replace(/\D/g,"")}
 function send(status){
  if(!data||!/^https:\/\//.test(SHEET_URL))return;
- var o={id:data.id,status:status,no:cur.n,design:cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
+ var o={id:data.id,status:status,no:cur.n,design:cur.key||cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
  try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o)}).catch(function(){})}catch(e){}
 }
 function open(n){
