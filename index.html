@@ -246,6 +246,16 @@ footer .in{grid-template-columns:1fr}
 .mock .phone:after{content:"";position:absolute;right:-1.1cqw;top:18%;width:.7cqw;height:7cqw;background:#3a3a3d;border-radius:.4cqw}
 .mock .phone.p1{left:19%;right:auto;bottom:0;transform:none}
 .mock .phone.p2{left:52%;right:auto;bottom:0;transform:none}
+.chk{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 14px;font-size:14px;cursor:pointer;background:var(--bg)}
+.chk input{width:20px;height:20px;margin:0;accent-color:var(--rose);flex:none;cursor:pointer}
+/* رسالة الخطأ في نافذة الطلب */
+.md .er{display:none;align-items:flex-start;gap:9px;background:#d0394f14;border:1px solid #d0394f55;color:#c2304a;border-radius:14px;padding:10px 13px;font-size:13px;line-height:1.8;min-height:0;margin:0 0 14px}
+.md .er.show{display:flex;animation:shk .4s}
+.md .er span{flex:none;font-size:15px;line-height:1.6}
+.md input.bad{border-color:#d0394f;background:#d0394f0d}
+@keyframes shk{20%{transform:translateX(6px)}40%{transform:translateX(-6px)}60%{transform:translateX(4px)}80%{transform:translateX(-3px)}}
+:root[data-theme="dark"] .md .er{color:#ff9aa9}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .md .er{color:#ff9aa9}}
 </style>
 </head>
 <body>
@@ -381,18 +391,16 @@ document.addEventListener("click",function(e){
 
 <div id="st1" hidden>
 <h3 id="mt">اطلب تصميمك</h3>
-<p class="sub">اكتب بياناتك وبعدها هتعرف تدفع إزاي</p>
+<p class="sub">اكتب بياناتك وهنحوّلك على واتساب عشان نكمّل الطلب</p>
 <div class="sum"><span id="sm1"></span><b id="sp1"></b></div>
 <form id="f1" novalidate>
 <label class="f" for="nm">الاسم بالكامل</label>
 <input type="text" id="nm" name="nm" autocomplete="name" placeholder="مثال: أحمد محمد">
 <label class="f" for="ph">رقم الموبايل</label>
 <input type="tel" id="ph" name="ph" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx" maxlength="14">
-<label class="f">هل الرقم ده عليه واتساب؟</label>
-<div class="yn"><label><input type="radio" name="wa" value="نعم"> أيوه ✅</label><label><input type="radio" name="wa" value="لا"> لأ ❌</label></div>
+<label class="chk"><input type="checkbox" id="wa" name="wa"><span>الرقم ده عليه واتساب ✅</span></label>
 <div class="er" id="er1" role="alert"></div>
-<button class="btn" type="submit">التالي ←</button>
-<button class="lnk" id="back0" type="button">← رجوع للتعليمات</button>
+<button class="btn" type="submit">💬 اطلب على واتساب</button>
 </form>
 </div>
 
@@ -448,10 +456,20 @@ function open(n){
 function order(n){
  cur=ORD[n];if(!cur)return;
  data={id:"SK-"+Date.now().toString(36).toUpperCase()};
- send("بدأ الطلب");
- var msg="مرحباً Skillify 👋\nأنا اخترت تصميم رقم "+cur.n+" ("+cur.name+" - "+cur.type+") وعايز أطلبه.\nالسعر: "+cur.price+(cur.old?" بدل "+cur.old:"");
- var u="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
- var w=window.open(u,"_blank");if(!w)location.href=u;
+ lastFocus=document.activeElement;
+ var t="تصميم رقم "+cur.n+" — "+cur.name+" ("+cur.type+")";
+ $("sm1").textContent=t;$("sp1").textContent=cur.price;
+ $("f1").reset();clearErr();
+ show(1);ov.hidden=false;ov.classList.add("on");document.body.style.overflow="hidden";
+ setTimeout(function(){$("nm").focus()},80);
+}
+function clearErr(){var er=$("er1");er.classList.remove("show");er.innerHTML="";["nm","ph"].forEach(function(i){$(i).classList.remove("bad")})}
+function showErr(msgs,bad){
+ var er=$("er1");clearErr();
+ er.innerHTML="<span>⚠️</span><div>"+msgs.join("<br>")+"</div>";
+ void er.offsetWidth;er.classList.add("show");
+ bad.forEach(function(f){f.classList.add("bad")});
+ bad[0].focus();
 }
 function close(){ov.classList.remove("on");ov.hidden=true;document.body.style.overflow="";if(lastFocus&&lastFocus.focus)lastFocus.focus()}
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".buy[data-n]");if(b){e.preventDefault();order(b.getAttribute("data-n"))}});
@@ -463,19 +481,23 @@ ov.addEventListener("click",function(e){if(e.target===ov)close()});
 $("mx").onclick=close;$("cl").onclick=close;
 $("f1").addEventListener("submit",function(e){
  e.preventDefault();
- var nm=$("nm").value.trim().replace(/\s+/g," "),ph=norm($("ph").value),w=document.querySelector('input[name="wa"]:checked'),er=$("er1");
- if(nm.length<3){er.textContent="من فضلك اكتب اسمك بالكامل";return}
+ var nm=$("nm").value.trim().replace(/\s+/g," "),ph=norm($("ph").value),msgs=[],bad=[];
  if(ph.indexOf("20")===0&&ph.length===12)ph="0"+ph.slice(2);
- if(!/^01[0125]\d{8}$/.test(ph)){er.textContent="اكتب رقم موبايل مصري صحيح (11 رقم)";return}
- if(!w){er.textContent="اختار هل الرقم عليه واتساب ولا لأ";return}
- er.textContent="";
- data.name=nm;data.phone=ph;data.wa=w.value;
+ if(nm.length<3){msgs.push("اكتب اسمك بالكامل (3 حروف على الأقل)");bad.push($("nm"))}
+ if(!ph){msgs.push("اكتب رقم الموبايل");bad.push($("ph"))}
+ else if(!/^01[0125]\d{8}$/.test(ph)){msgs.push("رقم الموبايل غير صحيح، اكتب رقم مصري من 11 رقم يبدأ بـ 010 أو 011 أو 012 أو 015");bad.push($("ph"))}
+ if(msgs.length){showErr(msgs,bad);return}
+ clearErr();
+ data.name=nm;data.phone=ph;data.wa=$("wa").checked?"نعم":"لا";
  send("بدأ الطلب");
- show(2);
+ var msg="مرحباً Skillify 👋\nأنا اخترت تصميم رقم "+cur.n+" ("+cur.name+" - "+cur.type+") وعايز أطلبه.\nالسعر: "+cur.price+(cur.old?" بدل "+cur.old:"");
+ var u="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
+ var w=window.open(u,"_blank");if(!w)location.href=u;
+ close();
 });
 $("back").onclick=function(){show(1)};
+$("nm").addEventListener("input",clearErr);$("ph").addEventListener("input",clearErr);
 $("go1").onclick=function(){show(1);setTimeout(function(){$("nm").focus()},60)};
-$("back0").onclick=function(){show(0)};
 $("cp").onclick=function(){
  var b=$("cp");
  function ok(){b.textContent="✔ تم النسخ";setTimeout(function(){b.textContent="📋 نسخ الرقم"},1800)}
