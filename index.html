@@ -380,9 +380,9 @@ document.addEventListener("click",function(e){
 <p class="sub">اقرا الخطوات دي قبل ما تكمّل 👇</p>
 <ol class="tl">
 <li data-i="1"><b>تكتب بياناتك</b><span>الاسم ورقم الموبايل، وتاخد دقيقة بس.</span></li>
-<li data-i="2"><b>تحوّل المبلغ</b><span>على InstaPay أو محفظة إلكترونية، وتدوس "تم التحويل".</span></li>
-<li data-i="3"><b>نأكد الدفع</b><span>بعد ما تبعتلنا طلبك وتدوس "تم التحويل"، هنراجع التحويل ونتواصل معاك <em>خلال ساعات قليلة</em> على واتساب أو مكالمة ونأكد استلام المبلغ.</span></li>
-<li data-i="4"><b>تبعتلنا بيانات الفرح</b><span>بعد التأكيد بتبعتلنا: أسماء العروسين، تاريخ ووقت الفرح، اسم القاعة ولينك موقعها على الخريطة، الصور، والأغنية اللي تحبها.</span></li>
+<li data-i="2"><b>تحوّل المبلغ</b><span>على InstaPay أو محفظة إلكترونية على الرقم <em>01066934068</em>، وتاخد سكرين شوت لإيصال التحويل.</span></li>
+<li data-i="3"><b>تبعتلنا على واتساب</b><span>بعد التحويل تدوس "تم التحويل" فيفتحلك واتساب برسالة جاهزة فيها تفاصيل طلبك، وتضيف عليها <em>صورة التحويل</em> وتبعتها.</span></li>
+<li data-i="4"><b>نأكد الدفع</b><span>هنراجع التحويل ونتواصل معاك <em>خلال ساعات قليلة</em>، وبعدها تبعتلنا بيانات الفرح: أسماء العروسين، تاريخ ووقت الفرح، اسم القاعة ولينك موقعها على الخريطة، الصور، والأغنية اللي تحبها.</span></li>
 <li data-i="5"><b>بنبدأ التنفيذ</b><span>أول ما كل البيانات توصلنا بنبدأ شغل، ونبعتلك نسخة تراجعها.</span></li>
 <li data-i="6"><b>التسليم</b><span>رابط دعوتك يكون جاهز <em>خلال ساعتين فقط</em> من استلام كل البيانات، مع تعديل مجاني بعد المراجعة.</span></li>
 </ol>
@@ -392,22 +392,21 @@ document.addEventListener("click",function(e){
 
 <div id="st1" hidden>
 <h3 id="mt">اطلب تصميمك</h3>
-<p class="sub">اكتب بياناتك وهنحوّلك على واتساب عشان نكمّل الطلب</p>
+<p class="sub">اكتب بياناتك، وبعدها هتحوّل المبلغ وتبعتلنا تفاصيل الطلب وصورة التحويل على واتساب</p>
 <div class="sum"><span id="sm1"></span><b id="sp1"></b></div>
 <form id="f1" novalidate>
 <label class="f" for="nm">الاسم بالكامل</label>
 <input type="text" id="nm" name="nm" autocomplete="name" placeholder="مثال: أحمد محمد">
 <label class="f" for="ph">رقم الموبايل</label>
 <input type="tel" id="ph" name="ph" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx" maxlength="14">
-<label class="chk"><input type="checkbox" id="wa" name="wa"><span>الرقم ده عليه واتساب ✅</span></label>
 <div class="er" id="er1" role="alert"></div>
-<button class="btn" type="submit">💬 اطلب على واتساب</button>
+<button class="btn" type="submit">متابعة للدفع ←</button>
 </form>
 </div>
 
 <div id="st2" hidden>
 <h3>حوّل المبلغ</h3>
-<p class="sub">حوّل على الرقم ده، وبعدها دوس "تم التحويل"</p>
+<p class="sub">حوّل المبلغ على الرقم ده، وبعدها دوس "تم التحويل"</p>
 <div class="sum"><span id="sm2"></span><b id="sp2"></b></div>
 <div class="paybox">
 <small>InstaPay أو محفظة إلكترونية</small>
@@ -415,7 +414,7 @@ document.addEventListener("click",function(e){
 <button class="cp" id="cp" type="button">📋 نسخ الرقم</button>
 <div class="ways"><span>InstaPay</span><span>فودافون كاش</span><span>اتصالات كاش</span><span>أورنج كاش</span><span>وي باي</span></div>
 </div>
-<ol class="steps"><li>حوّل المبلغ المكتوب فوق على الرقم ده.</li><li>خد سكرين شوت لإيصال التحويل.</li><li>دوس "تم التحويل" واحنا هنتواصل معاك.</li></ol>
+<ol class="steps"><li>حوّل المبلغ المكتوب فوق على الرقم ده (InstaPay أو محفظة).</li><li>خد سكرين شوت لإيصال التحويل.</li><li>دوس "تم التحويل" هيفتحلك واتساب برسالة فيها تفاصيل طلبك، <b>أرفق صورة التحويل</b> وابعتها.</li></ol>
 <button class="btn" id="done" type="button">✔ تم التحويل</button>
 <button class="lnk" id="back" type="button">← تعديل بياناتي</button>
 </div>
@@ -423,9 +422,10 @@ document.addEventListener("click",function(e){
 <div id="st3" hidden>
 <div class="ok">
 <div class="tick">✓</div>
-<h3 style="padding:0">وصلنا طلبك!</h3>
+<h3 style="padding:0">خطوة أخيرة: ابعتلنا على واتساب</h3>
 <p class="sub" id="okmsg"></p>
-<a class="btn" id="wab" href="#" target="_blank" rel="noopener" hidden>💬 ابعت صورة التحويل على واتساب</a>
+<div class="note" style="text-align:right">📎 مهم: أرفق <b>صورة (سكرين شوت) إيصال التحويل</b> مع الرسالة قبل ما تبعتها، عشان نأكد طلبك بسرعة.</div>
+<a class="btn" id="wab" href="#" target="_blank" rel="noopener">💬 افتح واتساب وابعت التفاصيل + صورة التحويل</a>
 <button class="lnk" id="cl" type="button">إغلاق</button>
 </div>
 </div>
@@ -444,23 +444,17 @@ function send(status){
  var o={id:data.id,status:status,no:cur.n,design:cur.key||cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
  try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o)}).catch(function(){})}catch(e){}
 }
-function open(n){
- cur=ORD[n];if(!cur)return;
- data={id:"SK-"+Date.now().toString(36).toUpperCase()};
- lastFocus=document.activeElement;
- var t="تصميم رقم "+cur.n+" — "+cur.name+" ("+cur.type+")";
- $("sm1").textContent=t;$("sm2").textContent=t;$("sp1").textContent=cur.price;$("sp2").textContent=cur.price;
- $("f1").reset();$("er1").textContent="";$("done").disabled=false;
- show(0);ov.hidden=false;ov.classList.add("on");document.body.style.overflow="hidden";
- 
+function waUrl(){
+ var msg="مرحباً Skillify 👋\nرقم الطلب: "+data.id+"\nالتصميم: رقم "+cur.n+" ("+cur.name+" - "+cur.type+")\nالسعر: "+cur.price+"\nالاسم: "+data.name+"\nالموبايل: "+data.phone+"\nحوّلت المبلغ على "+PAY+" وده إيصال التحويل 👇";
+ return "https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
 }
 function order(n){
  cur=ORD[n];if(!cur)return;
  data={id:"SK-"+Date.now().toString(36).toUpperCase()};
  lastFocus=document.activeElement;
  var t="تصميم رقم "+cur.n+" — "+cur.name+" ("+cur.type+")";
- $("sm1").textContent=t;$("sp1").textContent=cur.price;
- $("f1").reset();clearErr();
+ $("sm1").textContent=t;$("sm2").textContent=t;$("sp1").textContent=cur.price;$("sp2").textContent=cur.price;
+ $("f1").reset();clearErr();$("done").disabled=false;
  show(1);ov.hidden=false;ov.classList.add("on");document.body.style.overflow="hidden";
  setTimeout(function(){$("nm").focus()},80);
 }
@@ -489,12 +483,9 @@ $("f1").addEventListener("submit",function(e){
  else if(!/^01[0125]\d{8}$/.test(ph)){msgs.push("رقم الموبايل غير صحيح، اكتب رقم مصري من 11 رقم يبدأ بـ 010 أو 011 أو 012 أو 015");bad.push($("ph"))}
  if(msgs.length){showErr(msgs,bad);return}
  clearErr();
- data.name=nm;data.phone=ph;data.wa=$("wa").checked?"نعم":"لا";
+ data.name=nm;data.phone=ph;data.wa="نعم";
  send("بدأ الطلب");
- var msg="مرحباً Skillify 👋\nأنا اخترت تصميم رقم "+cur.n+" ("+cur.name+" - "+cur.type+") وعايز أطلبه.\nالسعر: "+cur.price+(cur.old?" بدل "+cur.old:"");
- var u="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
- var w=window.open(u,"_blank");if(!w)location.href=u;
- close();
+ show(2);
 });
 $("back").onclick=function(){show(1)};
 $("nm").addEventListener("input",clearErr);$("ph").addEventListener("input",clearErr);
@@ -508,16 +499,11 @@ $("cp").onclick=function(){
 $("done").onclick=function(){
  this.disabled=true;
  send("حوّل - في انتظار الإيصال");
- var wab=$("wab");
- if(data.wa==="نعم"){
-  var msg="مرحباً Skillify 👋\nرقم الطلب: "+data.id+"\nالتصميم: رقم "+cur.n+" ("+cur.name+" - "+cur.type+")\nالسعر: "+cur.price+"\nالاسم: "+data.name+"\nالموبايل: "+data.phone+"\nحوّلت المبلغ على "+PAY+" وده إيصال التحويل 👇";
-  wab.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);wab.hidden=false;
-  $("okmsg").textContent="رقم طلبك "+data.id+". ابعت صورة إيصال التحويل على واتساب عشان نأكد الطلب بسرعة.";
- }else{
-  wab.hidden=true;
-  $("okmsg").textContent="رقم طلبك "+data.id+". هنتواصل معاك بمكالمة على "+data.phone+" لتأكيد الدفع والطلب.";
- }
+ var u=waUrl();
+ $("wab").href=u;
+ $("okmsg").textContent="رقم طلبك "+data.id+". دوس على زرار واتساب تحت (لو ما اتفتحش لوحده)، وأرفق صورة إيصال التحويل مع الرسالة وابعتها.";
  show(3);
+ try{window.open(u,"_blank")}catch(e){}
 };
 })();
 </script>
