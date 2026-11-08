@@ -489,12 +489,13 @@ function add(n,img){
  box.appendChild(b);
  if(n===1){sec.hidden=false;if(li)li.style.display=""}
 }
-function load(n){
+function load(n,ext){
  if(n>60)return;
+ ext=ext||".png";
  var img=new Image();img.decoding="async";
  img.onload=function(){add(n,img);load(n+1)};
- img.onerror=function(){};
- img.src=n+".png";
+ img.onerror=function(){if(ext===".png")load(n,".PNG")};
+ img.src=n+ext;
 }
 load(1);
 })();
