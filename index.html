@@ -505,6 +505,7 @@ var SHEET_URL="https://script.google.com/macros/s/AKfycbxJMVCQ2VXM2zelwdLLXASnSy
 /* تتبع الزيارات والضغطات */
 (function(){
 if(navigator.webdriver)return;
+try{if(/[?&]nt=1/.test(location.search))localStorage.setItem("sk_nt","1");if(/[?&]nt=0/.test(location.search))localStorage.removeItem("sk_nt");if(localStorage.getItem("sk_nt"))return}catch(e){}
 function rid(){return Math.random().toString(36).slice(2,10)}
 function st(S,k,p){try{var v=S.getItem(k);if(!v){v=p+rid();S.setItem(k,v)}return[v,0]}catch(e){return[p+rid(),0]}}
 var isNew=true;try{isNew=!localStorage.getItem("sk_v")}catch(e){}
@@ -512,7 +513,7 @@ var vid=st(window.localStorage||{getItem:function(){},setItem:function(){}},"sk_
 var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"موبايل":"كمبيوتر";
 var q=new URLSearchParams(location.search),src=q.get("utm_source")||"";
 if(!src){try{src=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,""):"مباشر"}catch(e){src="مباشر"}}
-var Q=[];
+window.__sk={sid:sid,src:src};var Q=[];
 function ev(n,l,d){Q.push([new Date().toISOString(),vid,sid,n,l||"",d||"",dev,src]);if(Q.length>=15)flush()}
 function flush(){
  if(!Q.length||!/^https:\/\//.test(SHEET_URL))return;
@@ -523,6 +524,7 @@ setInterval(flush,5000);
 addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")flush()});
 addEventListener("pagehide",flush);
 ev("visit",isNew?"جديد":"عائد");
+try{ev("lang",localStorage.getItem("sk_lang")==="en"?"en":"ar")}catch(e){}var sd={};addEventListener("scroll",function(){var h=document.documentElement,p=Math.round((h.scrollTop+innerHeight)/h.scrollHeight*100);[25,50,75,100].forEach(function(t){if(p>=(t==100?98:t)&&!sd[t]){sd[t]=1;ev("scroll",t+"%")}})},{passive:true});
 document.addEventListener("click",function(e){
  var t=e.target.closest&&e.target.closest("a,button");if(!t)return;
  var l=(t.getAttribute("data-track")||t.getAttribute("aria-label")||t.textContent||"").replace(/\s+/g," ").trim().slice(0,60)||t.getAttribute("href")||"?";
@@ -591,7 +593,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&rv.classLis
 <li data-i="6"><b>التسليم</b><span>رابط دعوتك يكون جاهز <em>خلال ساعتين فقط</em> من استلام كل البيانات، مع تعديل مجاني بعد المراجعة.</span></li>
 </ol></details>
 <div class="note">💡 كل ما بعتلنا بيانات الفرح بدري، استلمت دعوتك بدري.</div>
-<button class="btn" id="go1" type="button">فهمت، كمّل ←</button>
+<button class="btn" id="go1" type="button" data-track="Modal Continue">فهمت، كمّل ←</button>
 </div>
 
 <div id="st1" hidden>
@@ -620,7 +622,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&rv.classLis
 <div class="ways"><span>InstaPay</span><span>فودافون كاش</span><span>اتصالات كاش</span><span>أورنج كاش</span><span>وي باي</span></div>
 </div>
 <ol class="steps"><li>حوّل المبلغ المكتوب فوق على الرقم ده (InstaPay أو محفظة).</li><li>خد سكرين شوت لإيصال التحويل.</li><li>دوس "تم التحويل" هيفتحلك واتساب برسالة فيها تفاصيل طلبك، <b>أرفق صورة التحويل</b> وابعتها.</li></ol>
-<button class="btn" id="done" type="button">✔ تم التحويل</button>
+<button class="btn" id="done" type="button" data-track="Modal Transfer Done">✔ تم التحويل</button>
 <ul class="trust"><li><i>⏱</i><span>رابط دعوتك جاهز <b>خلال ساعتين</b> من استلام بيانات الفرح</span></li><li><i>✏️</i><span><b>تعديل مجاني</b> بعد ما تراجع النسخة</span></li><li><i>💬</i><span>بنراجع التحويل ونرد عليك على واتساب <b>خلال ساعات قليلة</b></span></li></ul>
 <button class="lnk" id="back" type="button">← تعديل بياناتي</button>
 </div>
@@ -647,7 +649,7 @@ function show(n){["st0","st1","st2","st3"].forEach(function(s){$(s).hidden=(s!==
 function norm(v){return v.replace(/[\u0660-\u0669]/g,function(d){return d.charCodeAt(0)-1632}).replace(/\D/g,"")}
 function send(status){
  if(!data||!/^https:\/\//.test(SHEET_URL))return;
- var o={id:data.id,status:status,no:cur.n,design:cur.key||cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
+ var __k=window.__sk||{},o={sid:__k.sid||"",src:__k.src||"",id:data.id,status:status,no:cur.n,design:cur.key||cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
  try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o)}).catch(function(){})}catch(e){}
 }
 function waUrl(){
