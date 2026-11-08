@@ -340,6 +340,13 @@ html[dir=rtl] .rvh h3{font-family:Cairo,serif}
 .quotes figure{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
 .quotes blockquote{font-size:14px;line-height:1.8}
 .quotes figcaption{margin-top:10px;font-size:12px;color:var(--mute)}
+.rs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:90;width:min(94vw,520px);display:flex;align-items:center;gap:10px;padding:10px 12px 10px 14px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 34px #0003;font-size:13px;direction:rtl}
+.rs[hidden]{display:none}
+.rs span{flex:1;line-height:1.5}
+.rs .btn{padding:9px 18px;font-size:13px}
+.rs .x{border:0;background:none;color:var(--mute);font-size:18px;cursor:pointer}
+.more{margin:4px 0 12px}
+.more summary{cursor:pointer;font-size:13px;color:var(--rose-d);padding:6px 0}
 </style>
 </head>
 <body>
@@ -562,21 +569,27 @@ rv.addEventListener("click",function(e){if(e.target===rv)cR()});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&rv.classList.contains("on"))cR()});
 })();
 </script>
+<div class="rs" id="rs" hidden><span id="rst"></span><button class="btn" id="rsb" type="button">كمّل</button><button class="x" id="rsx" type="button" aria-label="إغلاق">✕</button></div>
 <div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt" hidden>
 <div class="md">
 <button class="x" id="mx" type="button" aria-label="إغلاق">✕</button>
 
 <div id="st0">
 <h3>إزاي بيتم طلبك؟</h3>
-<p class="sub">اقرا الخطوات دي قبل ما تكمّل 👇</p>
+<p class="sub">3 خطوات بسيطة بس 👇</p>
 <ol class="tl">
+<li data-i="1"><b>تكتب بياناتك</b><span>الاسم ورقم الموبايل، وتاخد دقيقة بس.</span></li>
+<li data-i="2"><b>تحوّل المبلغ وتبعت الإيصال</b><span>على InstaPay أو محفظة، وبعدها "تم التحويل" يفتحلك واتساب برسالة جاهزة، أرفق عليها <em>صورة التحويل</em>.</span></li>
+<li data-i="3"><b>تستلم دعوتك</b><span>بعد مراجعة التحويل تبعتلنا بيانات الفرح، ورابطك يكون جاهز <em>خلال ساعتين</em> مع تعديل مجاني.</span></li>
+</ol>
+<details class="more"><summary>شوف التفاصيل الكاملة</summary><ol class="tl">
 <li data-i="1"><b>تكتب بياناتك</b><span>الاسم ورقم الموبايل، وتاخد دقيقة بس.</span></li>
 <li data-i="2"><b>تحوّل المبلغ</b><span>على InstaPay أو محفظة إلكترونية على الرقم <em>01066934068</em>، وتاخد سكرين شوت لإيصال التحويل.</span></li>
 <li data-i="3"><b>تبعتلنا على واتساب</b><span>بعد التحويل تدوس "تم التحويل" فيفتحلك واتساب برسالة جاهزة فيها تفاصيل طلبك، وتضيف عليها <em>صورة التحويل</em> وتبعتها.</span></li>
 <li data-i="4"><b>نأكد الدفع</b><span>هنراجع التحويل ونتواصل معاك <em>خلال ساعات قليلة</em>، وبعدها تبعتلنا بيانات الفرح: أسماء العروسين، تاريخ ووقت الفرح، اسم القاعة ولينك موقعها على الخريطة، الصور، والأغنية اللي تحبها.</span></li>
 <li data-i="5"><b>بنبدأ التنفيذ</b><span>أول ما كل البيانات توصلنا بنبدأ شغل، ونبعتلك نسخة تراجعها.</span></li>
 <li data-i="6"><b>التسليم</b><span>رابط دعوتك يكون جاهز <em>خلال ساعتين فقط</em> من استلام كل البيانات، مع تعديل مجاني بعد المراجعة.</span></li>
-</ol>
+</ol></details>
 <div class="note">💡 كل ما بعتلنا بيانات الفرح بدري، استلمت دعوتك بدري.</div>
 <button class="btn" id="go1" type="button">فهمت، كمّل ←</button>
 </div>
@@ -641,8 +654,21 @@ function waUrl(){
  var msg="مرحباً Skillify 👋\nرقم الطلب: "+data.id+"\nالتصميم: رقم "+cur.n+" ("+cur.name+" - "+cur.type+")\nالسعر: "+cur.price+"\nالاسم: "+data.name+"\nالموبايل: "+data.phone+"\nحوّلت المبلغ على "+PAY+" وده إيصال التحويل 👇";
  return "https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
 }
+var KEY="sk_order",rs=$("rs");
+function sv(st){if(!cur)return;var d2=st>=2&&data&&data.name;try{localStorage.setItem(KEY,JSON.stringify({n:cur.n,id:data.id,name:d2?data.name:$("nm").value.trim(),phone:d2?data.phone:$("ph").value,stage:st,t:Date.now()}))}catch(e){}}
+function ld(){try{var o=JSON.parse(localStorage.getItem(KEY)||"null");if(o&&ORD[o.n]&&Date.now()-o.t<864e5)return o}catch(e){}return null}
+function clr(){try{localStorage.removeItem(KEY)}catch(e){}}
+function ok3(){$("wab").href=waUrl();$("okmsg").innerHTML="رقم طلبك: <b>"+data.id+"</b> (احتفظ بيه).<br>لو الواتساب ما اتفتحش لوحده، دوس الزرار تحت، وأرفق <b>صورة إيصال التحويل</b> مع الرسالة وابعتها. بعدها هنراجع التحويل ونرد عليك <b>خلال ساعات قليلة</b>."}
+function resume(o){
+ cur=ORD[o.n];data={id:o.id,name:o.name,phone:norm(o.phone),wa:"نعم"};lastFocus=document.activeElement;rs.hidden=true;
+ var t="تصميم رقم "+cur.n+" — "+cur.name+" ("+cur.type+")";
+ $("sm1").textContent=t;$("sm2").textContent=t;$("sp1").textContent=cur.price;$("sp2").textContent=cur.price;
+ $("f1").reset();clearErr();$("nm").value=o.name;$("ph").value=o.phone;
+ $("done").disabled=(o.stage===3);if(o.stage===3)ok3();
+ show(o.stage);ov.hidden=false;ov.classList.add("on");document.body.style.overflow="hidden";
+}
 function order(n){
- cur=ORD[n];if(!cur)return;
+ cur=ORD[n];if(!cur)return;rs.hidden=true;
  data={id:"SK-"+Date.now().toString(36).toUpperCase()};
  lastFocus=document.activeElement;
  var t="تصميم رقم "+cur.n+" — "+cur.name+" ("+cur.type+")";
@@ -666,7 +692,7 @@ document.addEventListener("keydown",function(e){
  if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches(".buy[data-n]")){e.preventDefault();order(e.target.getAttribute("data-n"))}
 });
 ov.addEventListener("click",function(e){if(e.target===ov)close()});
-$("mx").onclick=close;$("cl").onclick=close;
+$("mx").onclick=close;$("cl").onclick=function(){clr();close()};
 $("f1").addEventListener("submit",function(e){
  e.preventDefault();
  var nm=$("nm").value.trim().replace(/\s+/g," "),ph=norm($("ph").value),msgs=[],bad=[];
@@ -678,10 +704,10 @@ $("f1").addEventListener("submit",function(e){
  clearErr();
  data.name=nm;data.phone=ph;data.wa="نعم";
  send("بدأ الطلب");
- show(2);
+ show(2);sv(2);
 });
 $("back").onclick=function(){show(1)};
-$("nm").addEventListener("input",clearErr);$("ph").addEventListener("input",clearErr);
+function dr(){clearErr();sv(1)}$("nm").addEventListener("input",dr);$("ph").addEventListener("input",dr);
 $("go1").onclick=function(){show(1);setTimeout(function(){$("nm").focus()},60)};
 $("cp").onclick=function(){
  var b=$("cp");
@@ -693,11 +719,14 @@ $("done").onclick=function(){
  this.disabled=true;
  send("حوّل - في انتظار الإيصال");
  var u=waUrl();
- $("wab").href=u;
- $("okmsg").textContent="رقم طلبك "+data.id+". دوس على زرار واتساب تحت (لو ما اتفتحش لوحده)، وأرفق صورة إيصال التحويل مع الرسالة وابعتها.";
- show(3);
+ ok3();
+ show(3);sv(3);
  try{window.open(u,"_blank")}catch(e){}
 };
+var o0=ld();
+if(o0){$("rst").textContent="كمّل طلبك: تصميم رقم "+o0.n+" — "+ORD[o0.n].name;rs.hidden=false;
+ $("rsb").onclick=function(){resume(o0)};
+ $("rsx").onclick=function(){clr();rs.hidden=true}}
 })();
 </script>
 <script>
