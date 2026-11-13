@@ -345,13 +345,55 @@ html[dir=rtl] .rvh h3{font-family:Cairo,serif}
 .rs .x{border:0;background:none;color:var(--mute);font-size:18px;cursor:pointer}
 .more{margin:4px 0 12px}
 .more summary{cursor:pointer;font-size:13px;color:var(--rose-d);padding:6px 0}
+
+/* hero CTAs stacked */
+.btn[hidden]{display:none}
+.hcta{flex-direction:column;align-items:center;gap:12px}
+.hcta .btn{min-width:230px;justify-content:center;font-family:inherit}
+
+/* NEW corner ribbon */
+.new-rb{position:absolute;top:-1px;right:-1px;width:72px;height:72px;z-index:3;pointer-events:none;filter:drop-shadow(0 2px 3px #0000003d)}
+</style>
+<style id="calm">
+/* تهدئة الزحمة: مسافات أوسع وتفاصيل أقل في الكروت */
+.hero .in{padding:56px 20px 72px}
+.hero .hfade{height:140px}
+.tb{margin:-14px auto 18px;gap:8px;font-size:12.5px}
+.tb span{padding:6px 13px;box-shadow:none}
+.sec{padding:40px 20px 28px}
+.head{margin-bottom:30px}
+.group{padding:30px 26px;margin-bottom:36px}
+.gh{margin-bottom:28px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px}
+.card{padding:16px 16px 18px}
+.card .mock{margin-top:44px;margin-bottom:20px}
+.card .ty{margin-bottom:12px}
+.chips{gap:6px;margin-bottom:16px}
+.chips span{font-size:10.5px;padding:4px 10px}
+.chips{align-items:center}.chips span{white-space:nowrap}
+.chips span.more{direction:ltr;unicode-bidi:isolate;background:transparent;border:1px solid var(--line);color:var(--mute)}
+.pr em{display:none}
+.pr{padding:7px 18px}
+.acts{gap:10px;margin-top:4px}
+#pricing .head .langnote{display:none}
+@media(max-width:480px){
+.sec{padding:30px 16px 20px}
+.group{padding:20px 12px;margin-bottom:26px}
+.grid{grid-template-columns:minmax(0,300px);gap:20px}
+.hero .in{padding:36px 18px 56px}
+.tb{gap:6px 8px;margin-bottom:10px}
+.tb span{font-size:11.5px;padding:5px 11px}
+.acts{flex-direction:row;flex-wrap:wrap;justify-content:center}
+.acts>*{width:auto;max-width:none;flex:1 1 auto}
+.pr{width:100%;max-width:none;flex:1 1 100%;justify-content:center}
+}
 </style>
 </head>
 <body>
 <div class="promo" role="region" aria-label="Limited time offer"><div class="trk"><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span><span class="ar" dir="rtl"><em>✦</em><b>خصم 50%</b> لفترة محدودة · تصميمات كلاسيكية <b>200 ج</b> بدل <s>400 ج</s> · تصميمات فاخرة <b>250 ج</b> بدل <s>500 ج</s></span></div></div>
 <header><div class="nav">
 <a class="logo" href="#home"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M24 24c-6-10-18-12-18-4s10 8 18 4zm0 0c6-10 18-12 18-4s-10 8-18 4zM24 24c-4 6-8 14-6 18m6-18c4 6 8 14 6 18"/></svg><span><b>Skillify</b><small data-ar="يومك المميز، بشكل رقمي" data-en="Your Special Day, Digitally">يومك المميز، بشكل رقمي</small></span></a>
-<nav id="nav"><ul><li><a class="on" href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li><li><a href="#examples" data-ar="الأمثلة" data-en="Examples">الأمثلة</a></li><li><a href="#reviews" data-ar="آراء العملاء" data-en="Reviews">آراء العملاء</a></li><li><a href="#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li><li><a href="#features" data-ar="المميزات" data-en="Features">المميزات</a></li><li><a href="#faq" data-ar="الأسئلة" data-en="FAQ">الأسئلة</a></li><li><a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a></li></ul></nav>
+<nav id="nav"><ul><li><a class="on" href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li><li><a href="#examples" data-ar="الأمثلة" data-en="Examples">الأمثلة</a></li><li><a href="#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li><li><a href="#faq" data-ar="الأسئلة" data-en="FAQ">الأسئلة</a></li><li><a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a></li></ul></nav>
 <button class="lg" id="lg" type="button" aria-label="Language">EN</button>
 <a class="btn" href="https://wa.me/201500816542" target="_blank" rel="noopener" data-ar="💬 كلمنا على واتساب" data-en="💬 Chat on WhatsApp">💬 كلمنا على واتساب</a>
 <button class="menu" id="menu" aria-label="Menu" aria-expanded="false">☰</button>
@@ -361,31 +403,21 @@ html[dir=rtl] .rvh h3{font-family:Cairo,serif}
 <div>
 <div class="eyebrow" data-ar="دعوات زفاف وخطوبة رقمية" data-en="DIGITAL WEDDING &amp;amp; ENGAGEMENT INVITATIONS">دعوات زفاف وخطوبة رقمية</div>
 <h1 data-ar="دعوات إلكترونية فاخرة &lt;span&gt;للحظاتك الخاصة&lt;/span&gt;" data-en="Beautiful Websites &lt;span&gt;for Your Special Moments&lt;/span&gt;">دعوات إلكترونية فاخرة <span>للحظاتك الخاصة</span></h1>
-<div class="tags" data-ar="عصرية &lt;i&gt;•&lt;/i&gt; أنيقة &lt;i&gt;•&lt;/i&gt; تفاعلية" data-en="Modern &lt;i&gt;•&lt;/i&gt; Elegant &lt;i&gt;•&lt;/i&gt; Interactive">عصرية <i>•</i> أنيقة <i>•</i> تفاعلية</div>
 <p data-ar="مواقع دعوات مخصصة بتحكي قصة حبكم، وتشاركوا فرحتكم مع أهلكم وأصحابكم بشكل مميز." data-en="Unique and personalized invitation websites that bring your love story to life. Share your big day in a special way with your family and friends.">مواقع دعوات مخصصة بتحكي قصة حبكم، وتشاركوا فرحتكم مع أهلكم وأصحابكم بشكل مميز.</p>
-<div class="hcta"><a class="btn" href="#examples" data-track="Hero Designs" data-ar="شوف التصميمات" data-en="Browse designs">شوف التصميمات</a><a class="btn alt" href="https://wa.me/201500816542" target="_blank" rel="noopener" data-track="Hero WhatsApp" data-ar="💬 اطلب على واتساب" data-en="💬 Order on WhatsApp">💬 اطلب على واتساب</a></div>
+<div class="hcta"><a class="btn" href="#examples" data-track="Hero Designs" data-ar="شوف التصميمات" data-en="Browse designs">شوف التصميمات</a><button class="btn alt" id="rvbtn" type="button" hidden data-track="Open Reviews"><span data-ar="📸 شوف آراء عملائنا" data-en="📸 See customer reviews">📸 شوف آراء عملائنا</span></button></div>
 </div>
 </div></section>
-
-<div class="tb"><span data-ar="⏱ جاهزة خلال ساعتين" data-en="⏱ Ready within 2 hours">⏱ جاهزة خلال ساعتين</span><span data-ar="✏️ تعديل مجاني بعد المراجعة" data-en="✏️ Free edit after review">✏️ تعديل مجاني بعد المراجعة</span><span data-ar="💳 دفع InstaPay أو محفظة" data-en="💳 Pay via InstaPay or e-wallet">💳 دفع InstaPay أو محفظة</span></div>
 
 <section class="sec" id="examples">
 <div class="head"><div class="eyebrow" data-ar="تصميماتنا" data-en="OUR TEMPLATES">تصميماتنا</div><h2 data-ar="اختار الستايل المناسب ليك" data-en="Choose Your Perfect Style">اختار الستايل المناسب ليك</h2><p data-ar="شوف تصميماتنا الجاهزة واختار اللي يشبه قصتك." data-en="Explore our ready-made designs and find the one that matches your story.">شوف تصميماتنا الجاهزة واختار اللي يشبه قصتك.</p><div><span class="langnote" data-ar="🌐 كل التصميمات متاحة بالعربي أو الإنجليزي أو الاتنين" data-en="🌐 Every design is available in Arabic, English, or both">🌐 كل التصميمات متاحة بالعربي أو الإنجليزي أو الاتنين</span></div></div>
 <div id="groups"></div>
 </section>
 
-<section class="sec" id="reviews" hidden>
-<div class="head"><div class="eyebrow" data-ar="آراء العملاء" data-en="TESTIMONIALS">آراء العملاء</div><h2 data-ar="بيقولوا إيه عنا" data-en="What Our Couples Say">بيقولوا إيه عنا</h2><p dir="rtl" data-ar="آراء حقيقية من عملاء استلموا دعواتهم من Skillify" data-en="Real feedback from couples who received their invitations from Skillify">آراء حقيقية من عملاء استلموا دعواتهم من Skillify</p></div>
-<!-- الصور بتتحمل تلقائي: ضع 1.png و 2.png و 3.png ... جنب ملف index.html (أرقام متتالية من غير تخطي). -->
-<div class="rvw"><button class="btn" id="rvbtn" type="button" data-track="Open Reviews"><span data-ar="📸 شوف آراء عملائنا" data-en="📸 See customer reviews">📸 شوف آراء عملائنا</span></button></div>
-<div class="quotes" id="quotes"></div>
-</section>
-
 <section class="sec" id="how"><div class="head"><div class="eyebrow" data-ar="إزاي بتطلب" data-en="HOW IT WORKS">إزاي بتطلب</div><h2 data-ar="٣ خطوات وتستلم دعوتك" data-en="Your Invitation in 3 Steps">٣ خطوات وتستلم دعوتك</h2></div>
 <div class="how"><div><i>1</i><b data-ar="اختار تصميمك" data-en="Pick your design">اختار تصميمك</b><span data-ar="افتح أي دعوة من الأمثلة وجرّبها بنفسك، وبعدها دوس اطلب التصميم ده." data-en="Open any example and try it yourself, then tap Order This Design.">افتح أي دعوة من الأمثلة وجرّبها بنفسك، وبعدها دوس اطلب التصميم ده.</span></div><div><i>2</i><b data-ar="حوّل وابعت الإيصال" data-en="Pay &amp; send the receipt">حوّل وابعت الإيصال</b><span data-ar="حوّل على InstaPay أو محفظة إلكترونية، وابعت صورة الإيصال على واتساب." data-en="Transfer via InstaPay or an e-wallet and send the receipt on WhatsApp.">حوّل على InstaPay أو محفظة إلكترونية، وابعت صورة الإيصال على واتساب.</span></div><div><i>3</i><b data-ar="استلم رابط دعوتك" data-en="Get your invitation link">استلم رابط دعوتك</b><span data-ar="ابعتلنا بيانات الفرح ويكون رابطك جاهز خلال ساعتين." data-en="Send us your wedding details and your link is ready within 2 hours.">ابعتلنا بيانات الفرح ويكون رابطك جاهز خلال ساعتين.</span></div></div></section>
 
 <section class="sec" id="pricing">
-<div class="head"><div class="eyebrow" data-ar="الأسعار" data-en="PRICING">الأسعار</div><h2 data-ar="أسعار بسيطة وواضحة" data-en="Simple, Clear Pricing">أسعار بسيطة وواضحة</h2><p dir="rtl" data-ar="سعر ثابت لكل تصميم، اختار الباقة اللي تناسبك واطلب من غير تعقيد" data-en="One fixed price per design. Pick your plan and order, no hassle">سعر ثابت لكل تصميم، اختار الباقة اللي تناسبك واطلب من غير تعقيد</p><div><span class="langnote" data-ar="🌐 كل التصميمات متاحة بالعربي أو الإنجليزي أو الاتنين" data-en="🌐 Every design is available in Arabic, English, or both">🌐 كل التصميمات متاحة بالعربي أو الإنجليزي أو الاتنين</span></div></div>
+<div class="head"><div class="eyebrow" data-ar="الأسعار" data-en="PRICING">الأسعار</div><h2 data-ar="أسعار بسيطة وواضحة" data-en="Simple, Clear Pricing">أسعار بسيطة وواضحة</h2><p dir="rtl" data-ar="سعر ثابت لكل تصميم، اختار الباقة اللي تناسبك واطلب من غير تعقيد" data-en="One fixed price per design. Pick your plan and order, no hassle">سعر ثابت لكل تصميم، اختار الباقة اللي تناسبك واطلب من غير تعقيد</p></div>
 <div class="plans">
 <article class="plan">
 <h3 data-ar="الكلاسيكية" data-en="Standard">الكلاسيكية</h3>
@@ -418,19 +450,11 @@ html[dir=rtl] .rvh h3{font-family:Cairo,serif}
 </article>
 </div>
 <div class="incl"><span data-ar="تسليم خلال ساعتين من استلام بياناتك" data-en="Delivered within 2 hours of receiving your details">تسليم خلال ساعتين من استلام بياناتك</span><span data-ar="تعديل مجاني بعد المراجعة" data-en="Free edit after review">تعديل مجاني بعد المراجعة</span><span data-ar="دفع InstaPay أو محفظة إلكترونية" data-en="Pay via InstaPay or e-wallet">دفع InstaPay أو محفظة إلكترونية</span></div>
-<div class="feat" id="features">
-<div><div class="ic">◇</div><b data-ar="تصميم مخصص" data-en="Custom Design">تصميم مخصص</b><small data-ar="قصتك وستايلك" data-en="Your story, your style">قصتك وستايلك</small></div>
-<div><div class="ic">▯</div><b data-ar="مناسب للموبايل" data-en="Mobile Friendly">مناسب للموبايل</b><small data-ar="بيظهر مظبوط على كل الأجهزة" data-en="Perfect on all devices">بيظهر مظبوط على كل الأجهزة</small></div>
-<div><div class="ic">⛨</div><b data-ar="رابط خاص" data-en="Private Link">رابط خاص</b><small data-ar="شاركه مع أحبابك" data-en="Share it with your loved ones">شاركه مع أحبابك</small></div>
-<div><div class="ic">♡</div><b data-ar="تهاني الضيوف" data-en="Guest Wishes">تهاني الضيوف</b><small data-ar="اجمع الرسائل وصدّرها لـ Excel/Sheets" data-en="Collect messages &amp;amp; export to Excel/Sheets">اجمع الرسائل وصدّرها لـ Excel/Sheets</small></div>
-<div><div class="ic">⌖</div><b data-ar="خرائط جوجل" data-en="Google Maps">خرائط جوجل</b><small data-ar="شارك موقع القاعة" data-en="Share your venue location">شارك موقع القاعة</small></div>
-</div>
 </section>
 
 <section class="sec" id="faq">
 <div class="head"><div class="eyebrow" data-ar="الأسئلة" data-en="FAQ">الأسئلة</div><h2 data-ar="الأسئلة الشائعة" data-en="Frequently Asked Questions">الأسئلة الشائعة</h2><p dir="rtl" data-ar="إجابات على أكتر الأسئلة اللي بتوصلنا" data-en="Answers to the questions we get most">إجابات على أكتر الأسئلة اللي بتوصلنا</p></div>
 <div class="faq">
-<details><summary data-ar="إزاي أطلب دعوتي؟" data-en="How do I order my invitation?">إزاي أطلب دعوتي؟</summary><div class="a" data-ar="اختار التصميم اللي عجبك ودوس &lt;b&gt;اطلب التصميم ده&lt;/b&gt;، اكتب اسمك ورقم موبايلك، حوّل المبلغ، وبعدها دوس &quot;تم التحويل&quot; هيفتحلك واتساب برسالة جاهزة، أرفق عليها &lt;b&gt;صورة إيصال التحويل&lt;/b&gt; وابعتها." data-en="Pick the design you like and tap &lt;b&gt;Order This Design&lt;/b&gt;, enter your name and phone, transfer the amount, then tap “Transfer done” to open WhatsApp with a ready message. Attach your &lt;b&gt;transfer receipt&lt;/b&gt; and send it.">اختار التصميم اللي عجبك ودوس <b>اطلب التصميم ده</b>، اكتب اسمك ورقم موبايلك، حوّل المبلغ، وبعدها دوس "تم التحويل" هيفتحلك واتساب برسالة جاهزة، أرفق عليها <b>صورة إيصال التحويل</b> وابعتها.</div></details>
 <details><summary data-ar="هستلم الدعوة امتى؟" data-en="When will I receive the invitation?">هستلم الدعوة امتى؟</summary><div class="a" data-ar="رابط دعوتك بيكون جاهز &lt;b&gt;خلال ساعتين فقط&lt;/b&gt; من استلامنا كل بيانات الفرح. كل ما بعتّ البيانات بدري، استلمت دعوتك بدري." data-en="Your link is ready &lt;b&gt;within 2 hours&lt;/b&gt; of us receiving all your wedding details. The sooner you send them, the sooner you get it.">رابط دعوتك بيكون جاهز <b>خلال ساعتين فقط</b> من استلامنا كل بيانات الفرح. كل ما بعتّ البيانات بدري، استلمت دعوتك بدري.</div></details>
 <details><summary data-ar="إيه البيانات اللي محتاجينها مني؟" data-en="What details do you need from me?">إيه البيانات اللي محتاجينها مني؟</summary><div class="a" data-ar="أسماء العروسين، تاريخ ووقت الفرح، اسم القاعة ولينك موقعها على الخريطة، الصور، والأغنية اللي تحبها." data-en="Names of the couple, wedding date and time, venue name and map link, photos, and your favorite song.">أسماء العروسين، تاريخ ووقت الفرح، اسم القاعة ولينك موقعها على الخريطة، الصور، والأغنية اللي تحبها.</div></details>
 <details><summary data-ar="أقدر أعدّل بعد ما أشوف النسخة؟" data-en="Can I edit after seeing the draft?">أقدر أعدّل بعد ما أشوف النسخة؟</summary><div class="a" data-ar="أيوه، بنبعتلك نسخة تراجعها، وفيه &lt;b&gt;تعديل مجاني&lt;/b&gt; بعد المراجعة." data-en="Yes, we send you a version to review, with a &lt;b&gt;free edit&lt;/b&gt; after the review.">أيوه، بنبعتلك نسخة تراجعها، وفيه <b>تعديل مجاني</b> بعد المراجعة.</div></details>
@@ -438,7 +462,6 @@ html[dir=rtl] .rvh h3{font-family:Cairo,serif}
 <details><summary data-ar="إيه الفرق بين الكلاسيكية والفاخرة؟" data-en="What is the difference between Standard and Premium?">إيه الفرق بين الكلاسيكية والفاخرة؟</summary><div class="a" data-ar="&lt;b&gt;الكلاسيكية&lt;/b&gt; (200 جنيه) تصميمات أنيقة وبسيطة وجاهزة للمشاركة. &lt;b&gt;الفاخرة&lt;/b&gt; (250 جنيه) تصميمات فخمة وسينمائية بأنيميشن وتفاصيل أكتر. تقدر تفتح أي دعوة من الأمثلة وتشوفها بنفسك قبل ما تختار." data-en="&lt;b&gt;Standard&lt;/b&gt; (200 EGP) is elegant, simple and ready to share. &lt;b&gt;Premium&lt;/b&gt; (250 EGP) is luxurious and cinematic with more animation and detail. Open any example to see it yourself before choosing."><b>الكلاسيكية</b> (200 جنيه) تصميمات أنيقة وبسيطة وجاهزة للمشاركة. <b>الفاخرة</b> (250 جنيه) تصميمات فخمة وسينمائية بأنيميشن وتفاصيل أكتر. تقدر تفتح أي دعوة من الأمثلة وتشوفها بنفسك قبل ما تختار.</div></details>
 <details><summary data-ar="الضيوف هيشوفوا الدعوة إزاي؟" data-en="How will guests see the invitation?">الضيوف هيشوفوا الدعوة إزاي؟</summary><div class="a" data-ar="بتاخد رابط خاص بدعوتك تشاركه مع أهلك وأصحابك، وبتفتح بشكل مظبوط على كل الموبايلات والأجهزة. فيها عداد تنازلي، موقع القاعة على الخريطة، وتأكيد الحضور." data-en="You get a private link to share with family and friends. It opens perfectly on all phones and devices, with a countdown, venue map and RSVP.">بتاخد رابط خاص بدعوتك تشاركه مع أهلك وأصحابك، وبتفتح بشكل مظبوط على كل الموبايلات والأجهزة. فيها عداد تنازلي، موقع القاعة على الخريطة، وتأكيد الحضور.</div></details>
 <details><summary data-ar="الدعوة بتفضل شغالة لحد امتى بعد الفرح؟" data-en="How long does the invitation stay active after the wedding?">الدعوة بتفضل شغالة لحد امتى بعد الفرح؟</summary><div class="a" data-ar="رابط دعوتك &lt;b&gt;بيفضل شغّال مدى الحياة&lt;/b&gt;، ترجعله وقت ما تحب وتفضل ذكرى حلوة ليكم ولأهلكم. أما الدعم الفني من ناحيتنا فبيكون متاح &lt;b&gt;لحد وقت الفرح&lt;/b&gt;." data-en="Your invitation link &lt;b&gt;stays live for life&lt;/b&gt;, so you can revisit it whenever you like as a keepsake for you and your families. Our technical support is available &lt;b&gt;until the wedding&lt;/b&gt;.">رابط دعوتك <b>بيفضل شغّال مدى الحياة</b>، ترجعله وقت ما تحب وتفضل ذكرى حلوة ليكم ولأهلكم. أما الدعم الفني من ناحيتنا فبيكون متاح <b>لحد وقت الفرح</b>.</div></details>
-<details><summary data-ar="العرض والخصم لحد امتى؟" data-en="Until when is the offer valid?">العرض والخصم لحد امتى؟</summary><div class="a" data-ar="خصم 50% متاح &lt;b&gt;لفترة محدودة&lt;/b&gt;. لو عجبك تصميم، الأفضل تطلبه دلوقتي عشان تضمن السعر." data-en="The 50% discount is available for a &lt;b&gt;limited time&lt;/b&gt;. If you like a design, order now to lock in the price.">خصم 50% متاح <b>لفترة محدودة</b>. لو عجبك تصميم، الأفضل تطلبه دلوقتي عشان تضمن السعر.</div></details>
 </div>
 <div class="faq-cta"><p data-ar="لسه عندك سؤال؟ كلمنا وهنرد عليك بسرعة." data-en="Still have a question? Message us and we will reply quickly.">لسه عندك سؤال؟ كلمنا وهنرد عليك بسرعة.</p><a class="btn" href="https://wa.me/201500816542" target="_blank" rel="noopener" data-track="FAQ WhatsApp" data-ar="💬 كلمنا على واتساب" data-en="💬 Message us on WhatsApp">💬 كلمنا على واتساب</a></div>
 </section>
@@ -483,15 +506,16 @@ return '<div class="mock" aria-hidden="true"><div class="phone p1">'+a+'</div><d
 var TY={"Wedding":"فرح","Engagement":"خطوبة"},GT={"Premium Designs":"تصميمات فاخرة","Standard Designs":"تصميمات كلاسيكية"},GD={"Luxury & cinematic: more features, more animations, more magic":"فخمة وسينمائية: مميزات أكتر وحركة أكتر وسحر أكتر","Elegant, simple and ready to share":"أنيقة وبسيطة وجاهزة للمشاركة"},CH={"Photo Booth":"فوتو بوث","Countdown":"عداد تنازلي","Location":"الموقع","RSVP":"تأكيد الحضور","Schedule":"جدول اليوم","Dress Code":"كود اللبس","Our Moments":"لحظاتنا","Our Story":"قصتنا","Scratch Reveal":"اكشط لتكشف","Music":"موسيقى","Gallery":"معرض الصور","Photo Gallery":"معرض الصور","Guestbook":"دفتر التهاني","Photo Story":"قصة بالصور","Arabic / English":"عربي / إنجليزي","Timeline":"الجدول الزمني","Guest Wishes":"تهاني الضيوف","Gift Registry":"قائمة الهدايا"};
 function B(en,ar){return ' data-ar="'+ar+'" data-en="'+en+'"'}
 function EG(v){return String(v).replace("EGP","ج")}
+var NEWRB='<svg class="new-rb" viewBox="0 0 100 100" role="img" aria-label="New"><defs><linearGradient id="nrg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff4a45"/><stop offset=".55" stop-color="#e6171d"/><stop offset="1" stop-color="#a8070e"/></linearGradient><radialGradient id="nrh" cx=".55" cy=".35" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><path d="M0 0H80Q100 0 100 20V100Z" fill="url(#nrg)"/><path d="M0 0H80Q100 0 100 20V100Z" fill="url(#nrh)"/><path d="M0 0H9V6.5L0 0Z" fill="#8f0a10"/><path d="M100 100V91L93.5 100Z" fill="#8f0a10"/><text x="67" y="39" transform="rotate(45 67 33)" text-anchor="middle" font-family="Montserrat,Poppins,sans-serif" font-weight="800" font-size="17" letter-spacing="1" fill="#fff">NEW</text></svg>';
 document.getElementById("groups").innerHTML=groups.map(function(g,gi){
 return '<div class="group gold" id="grp'+gi+'"><div class="gh"><div><h3'+B(g.t,GT[g.t]||g.t)+'>'+g.t+'</h3><p'+B(g.d,GD[g.d]||g.d)+'>'+g.d+'</p></div></div><div class="grid">'+
-g.items.map(function(i){var n=++N,ov=i[8],pc=ov?ov.price:g.price,ol=ov?(ov.old||""):g.old,od=(ORD[n]={n:n,name:i[0],key:DN[i[6]]||i[0],url:i[6],type:i[1],price:pc,old:ol}),msg=encodeURIComponent("مرحباً Skillify 👋\nأعجبني تصميم رقم "+n+" ("+i[0]+" - "+i[1]+") بسعر "+pc.replace("EGP","جنيه")+(ol?" بدل "+ol.replace("EGP","جنيه")+" (خصم 50% لفترة محدودة)":"")+".\nأريد معرفة التفاصيل.");return '<div class="card" data-design="'+(DN[i[6]]||i[0]).replace(/"/g,"&quot;")+'"><span class="no"'+B("No. "+n,"رقم "+n)+'>No. '+n+'</span>'+mk(i)+'<h4>'+i[0]+'</h4><div class="ty"'+B(i[1],TY[i[1]]||i[1])+'>'+i[1]+'</div><div class="chips">'+i[7].map(function(f){return '<span'+B(f,CH[f]||f)+'>'+f+'</span>'}).join("")+'</div><div class="acts"><div class="pr">'+(ol?'<em'+B("50% OFF","خصم 50%")+'>50% OFF</em>':'')+'<span>'+(ol?'<s'+B(ol,EG(ol))+'>'+ol+'</s>':'')+'<b'+B(pc,EG(pc))+'>'+pc+'</b></span></div><a class="ghost" data-track="View the Invitation" href="'+i[6]+'" target="_blank" rel="noopener"'+B("View the Invitation →","شوف الدعوة ←")+'>View the Invitation →</a><a class="buy" role="button" tabindex="0" data-track="Order This Design" data-n="'+n+'"'+B("Order This Design","اطلب التصميم ده")+'>Order This Design</a></div></div>'}).join("")+'</div></div>'}).join("");
+g.items.map(function(i){var n=++N,ov=i[8],pc=ov?ov.price:g.price,ol=ov?(ov.old||""):g.old,od=(ORD[n]={n:n,name:i[0],key:DN[i[6]]||i[0],url:i[6],type:i[1],price:pc,old:ol}),msg=encodeURIComponent("مرحباً Skillify 👋\nأعجبني تصميم رقم "+n+" ("+i[0]+" - "+i[1]+") بسعر "+pc.replace("EGP","جنيه")+(ol?" بدل "+ol.replace("EGP","جنيه")+" (خصم 50% لفترة محدودة)":"")+".\nأريد معرفة التفاصيل.");return '<div class="card" data-design="'+(DN[i[6]]||i[0]).replace(/"/g,"&quot;")+'"><span class="no"'+B("No. "+n,"رقم "+n)+'>No. '+n+'</span>'+(n===1?NEWRB:'')+mk(i)+'<h4>'+i[0]+'</h4><div class="ty"'+B(i[1],TY[i[1]]||i[1])+'>'+i[1]+'</div><div class="chips">'+i[7].slice(0,3).map(function(f){return '<span'+B(f,CH[f]||f)+'>'+f+'</span>'}).join("")+(i[7].length>3?'<span class="more">\u200E+'+(i[7].length-3)+'\u200E</span>':'')+'</div><div class="acts"><div class="pr">'+(ol?'<em'+B("50% OFF","خصم 50%")+'>50% OFF</em>':'')+'<span>'+(ol?'<s'+B(ol,EG(ol))+'>'+ol+'</s>':'')+'<b'+B(pc,EG(pc))+'>'+pc+'</b></span></div><a class="ghost" data-track="View the Invitation" href="'+i[6]+'" target="_blank" rel="noopener"'+B("View the Invitation →","شوف الدعوة ←")+'>View the Invitation →</a><a class="buy" role="button" tabindex="0" data-track="Order This Design" data-n="'+n+'"'+B("Order This Design","اطلب التصميم ده")+'>Order This Design</a></div></div>'}).join("")+'</div></div>'}).join("");
 var m=document.getElementById("menu"),nv=document.getElementById("nav");
 m.onclick=function(){var o=nv.classList.toggle("open");m.setAttribute("aria-expanded",o)};
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener("click",function(e){var id=a.getAttribute("href").slice(1);e.preventDefault();var t=id&&document.getElementById(id);nv.classList.remove("open");m.setAttribute("aria-expanded","false");if(t){t.scrollIntoView({behavior:"smooth",block:"start"})}else{window.scrollTo({top:0,behavior:"smooth"})}})});
 (function(){var hero=document.querySelector(".hero"),pe=document.getElementById("petals");
 var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
-if(!calm){for(var k=0;k<16;k++){var i=document.createElement("i");i.style.left=(Math.random()*100)+"%";i.style.animationDuration=(9+Math.random()*9)+"s";i.style.animationDelay=(-Math.random()*14)+"s";i.style.transform="scale("+(.7+Math.random()*.8)+")";pe.appendChild(i)}}
+if(!calm){for(var k=0;k<8;k++){var i=document.createElement("i");i.style.left=(Math.random()*100)+"%";i.style.animationDuration=(9+Math.random()*9)+"s";i.style.animationDelay=(-Math.random()*14)+"s";i.style.transform="scale("+(.7+Math.random()*.8)+")";pe.appendChild(i)}}
 if("IntersectionObserver" in window){new IntersectionObserver(function(es){pe.style.display=es[0].isIntersecting?"":"none"}).observe(hero)}})();
 var cards=document.querySelectorAll(".card");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e,k){if(e.isIntersecting){setTimeout(function(){e.target.classList.add("in")},k*90);io.unobserve(e.target)}})},{threshold:.12});cards.forEach(function(c){io.observe(c)})}else{cards.forEach(function(c){c.classList.add("in")})}
@@ -538,8 +562,7 @@ document.addEventListener("click",function(e){
 <script>
 /* آراء العملاء: بتحمّل 1.png و 2.png و 3.png... تلقائي لحد أول رقم مش موجود */
 (function(){
-var sec=document.getElementById("reviews"),box=document.getElementById("shots"),lb=document.getElementById("lb"),lbi=document.getElementById("lbi"),last=null;
-var link=document.querySelector('nav a[href="#reviews"]'),li=link&&link.parentNode;if(li)li.style.display="none";
+var box=document.getElementById("shots"),lb=document.getElementById("lb"),lbi=document.getElementById("lbi"),last=null;
 function open(src,alt,from){last=from;lbi.src=src;lbi.alt=alt;lb.hidden=false;lb.classList.add("on");document.getElementById("lbx").focus()}
 function close(){lb.classList.remove("on");lb.hidden=true;lbi.removeAttribute("src");if(last&&last.focus)last.focus()}
 lb.addEventListener("click",close);
@@ -549,7 +572,7 @@ function add(n,img){
  img.alt="رأي عميل رقم "+n;b.appendChild(img);
  b.onclick=function(){open(img.src,img.alt,b)};
  box.appendChild(b);
- if(n===1){sec.hidden=false;if(li)li.style.display=""}
+ if(n===1)rb.hidden=false;
 }
 function load(n,ext){
  if(n>60)return;
@@ -559,7 +582,7 @@ function load(n,ext){
  img.onerror=function(){if(ext===".png")load(n,".PNG")};
  img.src=n+ext;
 }
-function probe(ext){var im=new Image();im.onload=function(){sec.hidden=false;if(li)li.style.display=""};im.onerror=function(){if(ext===".png")probe(".PNG")};im.src="1"+ext}
+function probe(ext){var im=new Image();im.onload=function(){rb.hidden=false};im.onerror=function(){if(ext===".png")probe(".PNG")};im.src="1"+ext}
 probe(".png");
 var rv=document.getElementById("rv"),rb=document.getElementById("rvbtn"),rx=document.getElementById("rvx"),started=false;
 function oR(){rv.hidden=false;rv.classList.add("on");document.body.style.overflow="hidden";if(!started){started=true;load(1)}rx.focus()}
@@ -621,7 +644,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&rv.classLis
 </div>
 <ol class="steps"><li>حوّل المبلغ المكتوب فوق على الرقم ده (InstaPay أو محفظة).</li><li>خد سكرين شوت لإيصال التحويل.</li><li>دوس "تم التحويل" هيفتحلك واتساب برسالة فيها تفاصيل طلبك، <b>أرفق صورة التحويل</b> وابعتها.</li></ol>
 <button class="btn" id="done" type="button" data-track="Modal Transfer Done">✔ تم التحويل</button>
-<ul class="trust"><li><i>⏱</i><span>رابط دعوتك جاهز <b>خلال ساعتين</b> من استلام بيانات الفرح</span></li><li><i>✏️</i><span><b>تعديل مجاني</b> بعد ما تراجع النسخة</span></li><li><i>💬</i><span>بنراجع التحويل ونرد عليك على واتساب <b>خلال ساعات قليلة</b></span></li></ul>
+
 <button class="lnk" id="back" type="button">← تعديل بياناتي</button>
 </div>
 
