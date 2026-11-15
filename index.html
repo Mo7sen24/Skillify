@@ -554,7 +554,7 @@ if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es
 
 <script>
 /* حط هنا رابط Google Apps Script (Web app) */
-var SHEET_URL="https://script.google.com/macros/s/AKfycbyXz0NeSjPyB9136J2bUhTZvv2GvpD0stk6OxKDLEhY_VgqpJA8pHRAmoRXYRvjGIMK/exec";
+var SHEET_URL="https://script.google.com/macros/s/AKfycbz32BAK6jPguPXTyi5BKo-nblMHizfV1SYcs8JcTfVIFs0y7OtrS66r8gPWfv1IP3A/exec";
 /* تتبع الزيارات والضغطات */
 (function(){
 if(navigator.webdriver)return;
@@ -566,7 +566,7 @@ var vid=st(window.localStorage||{getItem:function(){},setItem:function(){}},"sk_
 var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"موبايل":"كمبيوتر";
 var q=new URLSearchParams(location.search),src=q.get("utm_source")||"";
 if(!src){try{src=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,""):"مباشر"}catch(e){src="مباشر"}}
-window.__sk={sid:sid,src:src};var Q=[];
+var cpn=q.get("utm_campaign");if(cpn&&q.get("utm_source"))src+=" · "+cpn.replace(/\s+/g," ").trim().slice(0,40);window.__sk={sid:sid,src:src};var Q=[];
 function ev(n,l,d){Q.push([new Date().toISOString(),vid,sid,n,l||"",d||"",dev,src]);if(Q.length>=15)flush()}
 function flush(){
  if(!Q.length||!/^https:\/\//.test(SHEET_URL))return;
