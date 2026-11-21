@@ -564,8 +564,11 @@ var isNew=true;try{isNew=!localStorage.getItem("sk_v")}catch(e){}
 var vid=st(window.localStorage||{getItem:function(){},setItem:function(){}},"sk_v","V")[0],sid=st(window.sessionStorage||{getItem:function(){},setItem:function(){}},"sk_s","S")[0];
 var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"موبايل":"كمبيوتر";
 var q=new URLSearchParams(location.search),src=q.get("utm_source")||"";
+var rf=q.get("ref");if(!src&&rf)src="فوتر · "+rf.replace(/\s+/g," ").trim().slice(0,40);
 if(!src){try{src=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,""):"مباشر"}catch(e){src="مباشر"}}
-var cpn=q.get("utm_campaign");if(cpn&&q.get("utm_source"))src+=" · "+cpn.replace(/\s+/g," ").trim().slice(0,40);window.__sk={sid:sid,src:src};var Q=[];
+if(/\.vercel\.app$/.test(src)&&src!=="skillify-self.vercel.app")src="فوتر التصميمات";
+var ord=src;try{if(src!=="مباشر"){localStorage.setItem("sk_ls",JSON.stringify({s:src,t:Date.now()}))}else{var ls=JSON.parse(localStorage.getItem("sk_ls")||"null");if(ls&&ls.s&&Date.now()-ls.t<6048e5)ord=ls.s}}catch(e){}
+var cpn=q.get("utm_campaign");if(cpn&&q.get("utm_source"))src+=" · "+cpn.replace(/\s+/g," ").trim().slice(0,40);window.__sk={sid:sid,src:src,ord:ord};var Q=[];
 function ev(n,l,d){Q.push([new Date().toISOString(),vid,sid,n,l||"",d||"",dev,src]);if(Q.length>=15)flush()}
 function flush(){
  if(!Q.length||!/^https:\/\//.test(SHEET_URL))return;
@@ -715,7 +718,7 @@ function show(n){["st0","st1","st2","st3"].forEach(function(s){$(s).hidden=(s!==
 function norm(v){return v.replace(/[\u0660-\u0669]/g,function(d){return d.charCodeAt(0)-1632}).replace(/\D/g,"")}
 function send(status){
  if(!data||!/^https:\/\//.test(SHEET_URL))return;
- var __k=window.__sk||{},o={sid:__k.sid||"",src:__k.src||"",id:data.id,status:status,no:cur.n,design:cur.key||cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
+ var __k=window.__sk||{},o={sid:__k.sid||"",src:__k.ord||__k.src||"",id:data.id,status:status,no:cur.n,design:cur.key||cur.name,type:cur.type,price:cur.price,name:data.name,phone:data.phone,wa:data.wa};
  try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o)}).catch(function(){})}catch(e){}
 }
 function waUrl(){
