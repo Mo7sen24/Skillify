@@ -562,7 +562,14 @@ function rid(){return Math.random().toString(36).slice(2,10)}
 function st(S,k,p){try{var v=S.getItem(k);if(!v){v=p+rid();S.setItem(k,v)}return[v,0]}catch(e){return[p+rid(),0]}}
 var isNew=true;try{isNew=!localStorage.getItem("sk_v")}catch(e){}
 var vid=st(window.localStorage||{getItem:function(){},setItem:function(){}},"sk_v","V")[0],sid=st(window.sessionStorage||{getItem:function(){},setItem:function(){}},"sk_s","S")[0];
-var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"موبايل":"كمبيوتر";
+var UA=navigator.userAgent,dtype=/iPad|Tablet/i.test(UA)?"تابلت":/Mobi|Android|iPhone/i.test(UA)?"موبايل":"كمبيوتر";
+function osOf(){var m;if(m=UA.match(/Android ([\d.]+)/))return"Android "+m[1].split(".")[0];if(/iPhone|iPad|iPod/.test(UA)){m=UA.match(/OS (\d+)[_.]/);return"iOS"+(m?" "+m[1]:"")}if(/Windows/.test(UA))return"Windows";if(/Mac OS X/.test(UA))return"Mac";if(/CrOS/.test(UA))return"ChromeOS";if(/Linux/.test(UA))return"Linux";return""}
+function brOf(){if(/Instagram/.test(UA))return"Instagram";if(/FBAN|FBAV|FB_IAB/.test(UA))return"Facebook";if(/TikTok|musical_ly|BytedanceWebview/i.test(UA))return"TikTok";if(/Snapchat/.test(UA))return"Snapchat";if(/Line\//.test(UA))return"Line";if(/EdgA?\/|Edg\//.test(UA))return"Edge";if(/OPR\/|Opera/.test(UA))return"Opera";if(/SamsungBrowser/.test(UA))return"Samsung Browser";if(/Firefox|FxiOS/.test(UA))return"Firefox";if(/Chrome|CriOS/.test(UA))return"Chrome";if(/Safari/.test(UA))return"Safari";return""}
+function iph(){var w=Math.min(screen.width,screen.height),h=Math.max(screen.width,screen.height),k=w+"x"+h,M={"320x568":"iPhone SE/5s","375x667":"iPhone 6/7/8/SE2-3","414x736":"iPhone 6/7/8 Plus","375x812":"iPhone X/XS/11 Pro/12-13 mini","414x896":"iPhone XR/11/XS Max","390x844":"iPhone 12/13/14","428x926":"iPhone 12-13 Pro Max/14 Plus","393x852":"iPhone 14 Pro/15/16","430x932":"iPhone 14-15 Pro Max/15-16 Plus","402x874":"iPhone 16 Pro","440x956":"iPhone 16 Pro Max"};return M[k]||("iPhone "+k)}
+function modOf(){var m;if(/iPhone/.test(UA))return iph();if(/iPad/.test(UA))return"iPad";if(/Android/.test(UA)){m=UA.match(/Android [\d.]+; ([^;)]+)/);m=m&&m[1].replace(/ Build.*/,"").trim();return m&&m!=="K"?m:""}return""}
+function mkDev(model){return[dtype,osOf(),brOf(),model].filter(Boolean).join(" · ")}
+var dev=mkDev(modOf());
+try{if(/Android/.test(UA)&&navigator.userAgentData&&navigator.userAgentData.getHighEntropyValues)navigator.userAgentData.getHighEntropyValues(["model"]).then(function(h){var n=h&&h.model;if(n&&n!==modOf()){var o=dev;dev=mkDev(n);Q.forEach(function(r){if(r[6]===o)r[6]=dev})}}).catch(function(){})}catch(e){}
 var q=new URLSearchParams(location.search),src=q.get("utm_source")||"";
 var rf=q.get("ref");if(!src&&rf)src="فوتر · "+rf.replace(/\s+/g," ").trim().slice(0,40);
 if(!src){try{src=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,""):"مباشر"}catch(e){src="مباشر"}}
