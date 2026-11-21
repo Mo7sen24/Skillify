@@ -607,34 +607,33 @@ function add(n,img){
  box.appendChild(b);
  if(n===1)rb.hidden=false;
 }
-var EXTS=[".png",".PNG",".jpg",".jpeg",".JPG",".JPEG",".webp"];
-function one(n,i,cb){
- var im=new Image();im.decoding="async";
- im.onload=function(){cb(im)};
- im.onerror=function(){if(i+1<EXTS.length)one(n,i+1,cb);else cb(null)};
- im.src=n+EXTS[i];
+var EXTS=[".png",".PNG",".jpg",".jpeg",".JPG",".JPEG",".webp"],good=0;
+function one(n,i,lim,cb){
+ var im=new Image(),x=(good+i)%EXTS.length;im.decoding="async";
+ im.onload=function(){good=x;cb(im)};
+ im.onerror=function(){if(i+1<lim)one(n,i+1,lim,cb);else cb(null)};
+ im.src=n+EXTS[x];
 }
+function fin(){var l=document.getElementById("rvl");if(l)l.classList.remove("on")}
 function load(start,acc){
- var N=8,got=[],done=0;
- for(var k=0;k<N;k++)(function(k){one(start+k,0,function(im){got[k]=im;if(++done===N)fin()})})(k);
- function fin(){
-  var more=true;
-  var any=false;for(var k=0;k<N;k++){if(got[k]&&start+k<=60){acc.push({n:start+k,img:got[k]});any=true}}more=any;
-  if(more&&start+N<=60)load(start+N,acc);else show(acc);
- }
+ var N=12,got=[],done=0,lim=EXTS.length;
+ for(var k=0;k<N;k++)(function(k){one(start+k,0,lim,function(im){got[k]=im;if(++done===N)end()})})(k);
+ function end(){var any=false;
+  for(var k=0;k<N;k++)if(got[k]&&start+k<=60){acc.push({n:start+k,img:got[k]});any=true}
+  if(any&&start+N<=60)load(start+N,acc);else show(acc)}
 }
 function show(acc){
- var jobs=acc.map(function(a){return a.img.decode?a.img.decode().catch(function(){}):Promise.resolve()});
- Promise.all(jobs).then(function(){
-  acc.forEach(function(a){add(a.n,a.img)});
-  var l=document.getElementById("rvl");if(l)l.classList.remove("on");
+ Promise.all(acc.map(function(a){return a.img.decode?a.img.decode().catch(function(){}):Promise.resolve()})).then(function(){
+  acc.forEach(function(a){add(a.n,a.img)});fin();
   if(acc.length){box.hidden=false;box.classList.add("in")}
  });
 }
 function probe(i){var X=[".png",".PNG",".jpg",".jpeg",".JPG",".JPEG",".webp"],im=new Image();im.onload=function(){rb.hidden=false};im.onerror=function(){if(i+1<X.length)probe(i+1)};im.src="1"+X[i]}
 probe(0);
 var rv=document.getElementById("rv"),rb=document.getElementById("rvbtn"),rx=document.getElementById("rvx"),started=false;
-function oR(){rv.hidden=false;rv.classList.add("on");document.body.style.overflow="hidden";if(!started){started=true;document.getElementById("rvl").classList.add("on");load(1,[])}rx.focus()}
+function startR(){if(started)return;started=true;load(1,[])}
+addEventListener("load",function(){setTimeout(startR,1200)});
+function oR(){rv.hidden=false;rv.classList.add("on");document.body.style.overflow="hidden";if(!started){startR();document.getElementById("rvl").classList.add("on")}rx.focus()}
 function cR(){rv.classList.remove("on");rv.hidden=true;document.body.style.overflow="";rb.focus()}
 rb.onclick=oR;rx.onclick=cR;
 rv.addEventListener("click",function(e){if(e.target===rv)cR()});
